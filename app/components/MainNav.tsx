@@ -28,7 +28,7 @@ const MainNav = () => {
   return (
     <div
       ref={navRef}
-      className={`transition-all duration-300 ${
+      className={`transition-all px-2 duration-300 ${
         isFixed ? 'fixed top-0 w-full z-50 bg-white shadow-md' : ''
       }`}
     >
