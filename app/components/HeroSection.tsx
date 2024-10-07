@@ -38,14 +38,14 @@ const HeroSection = () => {
                         animate="visible"
                     >
                         {/* Heading */}
-                        <motion.h2 className="md:text-2xl text-lg  px-1 text-white" variants={textVariants}>
+                        <motion.h2 className="md:text-2xl text-lg  px-2 text-white" variants={textVariants}>
                             Welcome to <br />  
                             <b className="md:text-3xl text-2xl mt-2">GLAMERC SPECIALIST CLINIC - DENTAL CLINIC</b>
                         </motion.h2>
                        
-                        <motion.p className="text-white mt-4 md:font-bold font-medium  px-1 md:text-xl text-base" variants={textVariants}>Our unwavering goal is to make a lasting positive impact on the lives of our patients and the community we serve.
+                        <motion.p className="text-white mt-4 md:font-bold font-medium  px-2 md:text-xl text-base" variants={textVariants}>Our unwavering goal is to make a lasting positive impact on the lives of our patients and the community we serve.
                         </motion.p>
-                        <motion.div className="flex space-x-4 md:px-0 px-1 mt-4" variants={textVariants}>
+                        <motion.div className="flex space-x-4 md:px-0 px-2 mt-4" variants={textVariants}>
                             <button className="border border-teal-500 bg-teal-500 hover:bg-white hover:text-teal-500 text-white px-6 py-2 rounded">
                                 Discover More
                             </button>

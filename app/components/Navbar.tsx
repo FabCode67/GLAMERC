@@ -2,7 +2,7 @@ import { MailOutlined, PhoneOutlined, WhatsAppOutlined } from '@ant-design/icons
 
 const Navbar = () => {
   return (
-    <div className="bg-teal-600 py-2 md:text-base text-sm px-1 text-white">
+    <div className="bg-teal-600 py-2 md:text-base text-sm px-3 text-white">
       <div className="container mx-auto max-w-7xl flex justify-between items-center">
         <div className="flex items-center space-x-4">
           <span>
