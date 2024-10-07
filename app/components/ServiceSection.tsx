@@ -13,7 +13,7 @@ const services = [
   { title: "Retainers and night guards.", description: "Get your retainers and night guards", icon: "/im9.png" },
 ];
 
-const ServicePage = () => {
+const ServiceSection = () => {
   return (
     <section className="py-16 bg-teal-500 bg-fixed">
       <div className="text-center mb-12">
@@ -55,4 +55,4 @@ const ServicePage = () => {
   );
 };
 
-export default ServicePage;
+export default ServiceSection;
