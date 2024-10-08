@@ -15,7 +15,7 @@ const services = [
 
 const ServiceSection = () => {
   return (
-    <section className="py-16 bg-teal-500 bg-fixed">
+    <section id='services' className="py-16 bg-teal-500 px-2 bg-fixed">
       <div className="text-center mb-12">
         <h2 className="text-3xl font-bold text-gray-800">Our Specialty</h2>
         <p className="text-gray-500 mt-2">
@@ -23,17 +23,17 @@ const ServiceSection = () => {
         </p>
       </div>
 
-      <div className="grid md:gap-6 gap-2 md:px-0 px-2 sm:grid-cols-2 grid-cols-2 lg:grid-cols-5 xl:grid-cols-5 max-w-7xl mx-auto">
+      <div className="grid md:gap-4 gap-2 md:px-0 sm:grid-cols-2 grid-cols-2 lg:grid-cols-5 xl:grid-cols-5 max-w-7xl mx-auto">
         {services.map((service, index) => (
           <div
             key={index}
-            className={`p-6 bg-white rounded-lg shadow-md transition-all duration-300 ${
-              service.highlighted ? 'bg-blue-500 text-white' : 'hover:bg-blue-50'
+            className={`p-6  rounded-lg shadow-md transition-all duration-300 ${
+              service.highlighted ? 'bg-teal-500 text-white' : 'hover:bg-blue-50 bg-white'
             }`}
           >
             <div
               className={`text-4xl mb-4 ${
-                service.highlighted ? 'bg-white text-blue-500 rounded-full px-2' : 'text-blue-500'
+                service.highlighted ? 'bg-white text-teal-500 rounded-full px-2' : 'text-teal-500'
               }`}
             >
                 <img src={service.icon} alt={service.title} className='h-16 w-16 object-contain' />

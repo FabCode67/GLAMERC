@@ -6,14 +6,16 @@ const Navbar = () => {
       <div className="container mx-auto max-w-7xl flex justify-between items-center">
         <div className="flex items-center space-x-4">
           <span>
-            <MailOutlined /> glameric@health.care
+            <MailOutlined /> dentalimaging100@gmail.com
           </span>
           <span className='md:flex hidden'>
             <PhoneOutlined /> 90919 Madie Run Apt. 790
           </span>
         </div>
         <div>
-          <WhatsAppOutlined /> Connect on WhatsApp
+          <a href="https://wa.me/250784012286" className="flex items-center space-x-2">
+            <WhatsAppOutlined /> Connect on WhatsApp
+          </a>
         </div>
       </div>
     </div>

@@ -3,6 +3,8 @@ import { useState, useEffect, useRef } from 'react';
 import { Button } from 'antd';
 import Link from 'next/link';
 import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai';
+import { PiPhone } from 'react-icons/pi';
+import { BiPhone } from 'react-icons/bi';
 
 const MainNav = () => {
   const [isFixed, setIsFixed] = useState(false);
@@ -32,14 +34,11 @@ const MainNav = () => {
         isFixed ? 'fixed top-0 w-full z-50 bg-white shadow-md' : ''
       }`}
     >
-      <div className="container mx-auto flex justify-between items-center py-4 max-w-7xl">
-        {/* Logo */}
+      <div className="container bg-white mx-auto flex justify-between items-center py-4 max-w-7xl">
         <div className="flex items-center">
           <img src="/logo.png" alt="Medico Logo" className="h-8 w-8 mr-2" />
           <span className="text-xl font-semibold">Glamerc</span>
         </div>
-
-        {/* Desktop Menu */}
         <div className="hidden md:flex space-x-6">
           <Link href="#">
             <p className="text-gray-700 hover:text-teal-600">Home</p>
@@ -53,17 +52,20 @@ const MainNav = () => {
           <Link href="#team">
             <p className="text-gray-700 hover:text-teal-600">Team</p>
           </Link>
+        
+          <Link href="#parteners">
+            <p className="text-gray-700 hover:text-teal-600">Parteners</p>
+          </Link>
+          <Link href="#contact">
+            <p className="text-gray-700 hover:text-teal-600">Contact</p>
+          </Link>
         </div>
-
-        {/* Contact and Login */}
         <div className="hidden md:flex items-center space-x-4">
-          <span className="text-gray-700">📞 +250 788 888 888</span>
+          <span className="text-gray-700 flex"><BiPhone className='flex my-auto justify-center' /> +250 784 012 286</span>
           <Button type="primary" className="bg-teal-600 hover:bg-teal-700">
             Login
           </Button>
         </div>
-
-        {/* Mobile Menu Button */}
         <div className="md:hidden flex items-center">
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -77,8 +79,6 @@ const MainNav = () => {
           </button>
         </div>
       </div>
-
-      {/* Mobile Menu */}
       {isMobileMenuOpen && (
         <div className="md:hidden bg-white shadow-lg">
           <div className="flex flex-col space-y-4 py-4 px-6">
@@ -94,7 +94,13 @@ const MainNav = () => {
             <Link href="#team">
               <p className="text-gray-700 hover:text-teal-600">Team</p>
             </Link>
-            <span className="text-gray-700">📞 +250 788 888 888</span>
+            <Link href="#parteners">
+              <p className="text-gray-700 hover:text-teal-600">Parteners</p>
+            </Link>
+            <Link href="#contact">
+              <p className="text-gray-700 hover:text-teal-600">Contact</p>
+            </Link>
+            <span className="text-gray-700 flex"><BiPhone className='flex my-auto justify-center' /> +250 784 012 286</span>
             <Button type="primary" className="bg-teal-600 hover:bg-teal-700">
               Login
             </Button>
