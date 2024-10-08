@@ -42,16 +42,14 @@ const clinicians = [
 
 const TeamSection = () => {
   return (
-    <section className="py-16 bg-gray-50">
+    <section id='team' className="py-16 bg-gray-50">
       {/* Title */}
       <div className="text-center mb-12">
         <h2 className="text-3xl font-bold text-gray-800">Meet Our Team</h2>
-        <p className="text-gray-500 mt-2">
+        <p className="text-gray-500 px-3 mt-2">
           Our dedicated medical professionals are here to help you.
         </p>
       </div>
-
-      {/* Clinic Admin - Main Card */}
       <div className="mb-12 max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-lg text-center">
         <img
           src="/doctor.png"
@@ -62,48 +60,41 @@ const TeamSection = () => {
         <p className="text-gray-500 mb-4">Clinic Administrator</p>
         <div className="flex justify-center space-x-6 text-gray-700 mb-6">
           <a href="https://wa.me/250788000004" target="_blank" rel="noopener noreferrer">
-            <FaWhatsapp className="text-green-500 text-xl" />
+            <FaWhatsapp className="text-teal-600 text-xl" />
           </a>
           <a href="tel:+250788000004">
-            <FaPhoneAlt className="text-blue-500 text-xl" />
+            <FaPhoneAlt className="text-teal-600 text-xl" />
           </a>
           <a href="mailto:sarah.lee@example.com">
-            <FaEnvelope className="text-red-500 text-xl" />
+            <FaEnvelope className="text-teal-600 text-xl" />
           </a>
         </div>
         <button className="px-6 py-2 bg-teal-600 text-white rounded-md hover:bg-teal-700 transition duration-300">
           Book Appointment
         </button>
       </div>
-
-      {/* Other Clinicians - Grid Layout */}
-      <div className="grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-5 max-w-7xl mx-auto">
+      <div className="grid gap-2 sm:grid-cols-2 grid-cols-2  md:grid-cols-2 lg:grid-cols-5 max-w-7xl mx-auto">
         {clinicians.map((clinician, index) => (
           <div key={index} className="bg-white p-2 rounded-lg shadow-lg text-center">
-            {/* Clinician Image Placeholder */}
             <img
               src={`/doctor.png`}
               alt={clinician.name}
               className="h-20 w-20 mx-auto rounded-full mb-4 object-contain"
             />
-            <h3 className="text-xl font-semibold mb-2">{clinician.name}</h3>
-            <p className="text-gray-500 mb-4">{clinician.title}</p>
-
-            {/* Contact Icons */}
+            <h3 className="md:text-xl text-sm font-semibold mb-2">{clinician.name}</h3>
+            <p className="text-gray-500 md:mb-4 mb-2">{clinician.title}</p>
             <div className="flex justify-center space-x-6 text-gray-700 mb-6">
               <a href={`https://wa.me/${clinician.whatsapp}`} target="_blank" rel="noopener noreferrer">
-                <FaWhatsapp className="text-green-500 text-xl" />
+                <FaWhatsapp className="text-teal-600 text-xl" />
               </a>
               <a href={`tel:${clinician.phone}`}>
-                <FaPhoneAlt className="text-blue-500 text-xl" />
+                <FaPhoneAlt className="text-teal-600 text-xl" />
               </a>
               <a href={`mailto:${clinician.email}`}>
-                <FaEnvelope className="text-red-500 text-xl" />
+                <FaEnvelope className="text-teal-600 text-xl" />
               </a>
             </div>
-
-            {/* Book Appointment Button */}
-            <button className="px-6 py-2 bg-teal-600 text-white rounded-md hover:bg-teal-700 transition duration-300">
+            <button className="md:px-6 px-2 py-2 bg-teal-600 text-white rounded-md hover:bg-teal-700 transition duration-300">
               Book Appointment
             </button>
           </div>
