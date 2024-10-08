@@ -3,7 +3,6 @@ import { useState, useEffect, useRef } from 'react';
 import { Button } from 'antd';
 import Link from 'next/link';
 import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai';
-import { PiPhone } from 'react-icons/pi';
 import { BiPhone } from 'react-icons/bi';
 
 const MainNav = () => {
