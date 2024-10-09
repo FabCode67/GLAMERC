@@ -4,11 +4,17 @@ import { Button } from 'antd';
 import Link from 'next/link';
 import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai';
 import { BiPhone } from 'react-icons/bi';
+import { useRouter } from 'next/navigation';
 
 const MainNav = () => {
   const [isFixed, setIsFixed] = useState(false);
+  const router = useRouter();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const navRef = useRef<HTMLDivElement>(null);
+
+  const handleLogin = () => {
+    router.push("https://xanahealth.io/login");
+  }
 
   useEffect(() => {
     const handleScroll = () => {
@@ -38,7 +44,7 @@ const MainNav = () => {
           <img src="/logo.png" alt="Medico Logo" className="h-8 w-8 mr-2" />
           <span className="text-xl font-semibold">Glamerc</span>
         </div>
-        <div className="hidden md:flex space-x-6">
+        <div className="hidden lg:flex space-x-6">
           <Link href="#">
             <p className="text-gray-700 hover:text-teal-600">Home</p>
           </Link>
@@ -59,13 +65,13 @@ const MainNav = () => {
             <p className="text-gray-700 hover:text-teal-600">Contact</p>
           </Link>
         </div>
-        <div className="hidden md:flex items-center space-x-4">
+        <div className="hidden lg:flex items-center space-x-4">
           <span className="text-gray-700 flex"><BiPhone className='flex my-auto justify-center' /> +250 784 012 286</span>
-          <Button type="primary" className="bg-teal-600 hover:bg-teal-700">
+          <Button onClick={handleLogin} type="primary" className="bg-teal-600 hover:bg-teal-700">
             Login
           </Button>
         </div>
-        <div className="md:hidden flex items-center">
+        <div className="lg:hidden flex items-center">
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Toggle Mobile Menu"
@@ -79,7 +85,7 @@ const MainNav = () => {
         </div>
       </div>
       {isMobileMenuOpen && (
-        <div className="md:hidden bg-white shadow-lg">
+        <div className="lg:hidden bg-white shadow-lg">
           <div className="flex flex-col space-y-4 py-4 px-6">
             <Link href="#">
               <p className="text-gray-700 hover:text-teal-600">Home</p>
@@ -100,7 +106,7 @@ const MainNav = () => {
               <p className="text-gray-700 hover:text-teal-600">Contact</p>
             </Link>
             <span className="text-gray-700 flex"><BiPhone className='flex my-auto justify-center' /> +250 784 012 286</span>
-            <Button type="primary" className="bg-teal-600 hover:bg-teal-700">
+            <Button onClick={handleLogin} type="primary" className="bg-teal-600 hover:bg-teal-700">
               Login
             </Button>
           </div>
