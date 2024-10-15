@@ -14,25 +14,23 @@ const PartenersSection = () => {
                 At our dental clinic, we strive to make quality dental care accessible to all our patients. We are proud to partner with a variety of insurance providers to offer comprehensive coverage options. Our list of accepted insurances ensures that you can receive the treatment you need without financial stress. Your oral health is our priority, and we are here to help you every step of the way!
                 </p>
                 <div className="w-full overflow-hidden mt-20">
-                    <div className="moving-logos w-full flex items-center space-x-12 mt-20 animate-scroll">
+                    <div className="w-full flex gap-4 justify-center mx-auto shadow flex-wrap">
                         {[
-                            'eden.png',
                             'xana.webp',
                             'old.png',
                             'moh.png',
                             'karisimbi.png',
-                            'eden.png',
                             'xana.webp',
-                            'old.png',
-                            'sante.png',
-                            'moh.png',
                             'karisimbi.png',
+                            'xana.webp',
+                            'karisimbi.png',
+                            'xana.webp',
                         ].map((logo, index) => (
                             <img
                                 key={index}
                                 src={`/${logo}`}
                                 alt={`Partner Logo ${index + 1}`}
-                                className="h-24 md:h-32"
+                                className="h-24 shadow md:h-32"
                             />
                         ))}
                     </div>

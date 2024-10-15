@@ -8,11 +8,13 @@ import ServiceSection from './components/ServiceSection';
 import PartenersSection from './components/PartenerSection';
 import Footer from './components/Footer';
 import LocationSection from './components/Location';
+import NavLogo from './components/NavLogo';
 
 const Home = () => {
   return (
     <>
       <Navbar />
+      <NavLogo />
       <MainNav />
       <HeroSection />
       <AboutSection />
