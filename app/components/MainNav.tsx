@@ -57,7 +57,6 @@ const MainNav = () => {
           <Link href="#team">
             <p className={`${isFixed ? 'text-gray-700 hover:text-teal-600':'text-white hover:text-slate-300'}`}>Team</p>
           </Link>
-        
           <Link href="#parteners">
             <p className={`${isFixed ? 'text-gray-700 hover:text-teal-600':'text-white hover:text-slate-300'}`}>Parteners</p>
           </Link>
@@ -85,7 +84,9 @@ const MainNav = () => {
         </div>
       </div>
       {isMobileMenuOpen && (
-        <div className="lg:hidden bg-white shadow-lg">
+        <div className={`lg:hidden transition-all duration-300 w-full shadow-lg ${
+          isFixed ? 'bg-white' : 'bg-teal-600'
+        } `}>
           <div className="flex flex-col space-y-4 py-4 px-6">
             <Link href="#">
               <p className={`${isFixed ? 'text-gray-700 hover:text-teal-600':'text-white hover:text-slate-300'}`}>Home</p>
@@ -105,7 +106,7 @@ const MainNav = () => {
             <Link href="#contact">
               <p className={`${isFixed ? 'text-gray-700 hover:text-teal-600':'text-white hover:text-slate-300'}`}>Contact</p>
             </Link>
-            <span className="text-gray-700 flex"><BiPhone className='flex my-auto justify-center' /> +250 784 012 286</span>
+            <span className={`${isFixed ? 'text-black':'text-white'} flex`}><BiPhone className='flex my-auto justify-center' /> +250 784 012 286</span>
             <Button onClick={handleLogin} type="primary" className="bg-teal-600 hover:bg-teal-700">
               Login
             </Button>

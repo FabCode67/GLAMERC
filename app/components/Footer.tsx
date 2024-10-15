@@ -5,11 +5,11 @@ import SubFooter from './SubFooter';
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-800 pt-12  text-gray-400">
-      <div className="container mx-auto max-w-7xl md:px-0 px-2 grid grid-cols-1 md:grid-cols-3 gap-8">
+    <footer className="bg-gray-800 pt-12 text-gray-400">
+      <div className="container mx-auto max-w-7xl md:px-2 px-2 grid grid-cols-1 md:grid-cols-3 gap-8">
         <div>
-            <h4 className="text-lg font-semibold mb-4">About Us</h4>
-            <p className="text-gray-400 text-xs">
+            <h4 className="text-lg font-semibold mb-4">Vision</h4>
+            <p className="text-gray-400 text-[12px]">
             Our vision is to become a center of excellence in dental care, establishing ourselves as a respected clinic that fosters lifelong relationships built on trust, confidence, and quality. We are committed to delivering exceptional patient care, providing the highest standards of dental services, and continuously advancing our expertise to ensure that every patient experiences the best in oral health. Through our dedication to innovation and excellence, we aim to be the preferred choice for dental care in our community, creating lasting impacts on the lives we touch.
             </p>
         </div>
@@ -21,7 +21,6 @@ const Footer = () => {
             <li><Link href="#services"><p className="hover:text-teal-400 text-gray-400">Services</p></Link></li>
             <li><Link href="#team"><p className="hover:text-teal-400 text-gray-400">Team</p></Link></li>
             <li><Link href="#parteners"><p className="hover:text-teal-400 text-gray-400">Parteners</p></Link></li>
-            <li><Link href="#contact"><p className="hover:text-teal-400 text-gray-400">Contact</p></Link></li>
           </ul>
         </div>
         <div className='text-gray-400 md:block hidden'>
@@ -43,7 +42,6 @@ const Footer = () => {
             <li><Link href="#services"><p className="hover:text-teal-400 text-gray-400">Services</p></Link></li>
             <li><Link href="#team"><p className="hover:text-teal-400 text-gray-400">Team</p></Link></li>
             <li><Link href="#parteners"><p className="hover:text-teal-400 text-gray-400">Parteners</p></Link></li>
-            <li><Link href="#contact"><p className="hover:text-teal-400 text-gray-400">Contact</p></Link></li>
           </ul>
         </div>
         <div className='text-gray-400 w-1/2'>
