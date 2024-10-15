@@ -9,7 +9,7 @@ const Navbar = () => {
             <MailOutlined /> dentalimaging100@gmail.com
           </span>
           <span className='md:flex hidden'>
-            <PhoneOutlined /> 90919 Madie Run Apt. 790
+            <PhoneOutlined /> +250 784 012 286
           </span>
         </div>
         <div>

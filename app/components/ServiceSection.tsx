@@ -17,12 +17,11 @@ const ServiceSection = () => {
   return (
     <section id='services' className="py-16 bg-teal-500 px-2 bg-fixed">
       <div className="text-center mb-12">
-        <h2 className="text-3xl font-bold text-gray-800">Our Specialty</h2>
-        <p className="text-gray-500 mt-2">
+        <h2 className="text-3xl font-bold text-gray-100">Our Specialty</h2>
+        <p className="text-gray-200 mt-2">
           We provide the world-class services with the best medical team!
         </p>
       </div>
-
       <div className="grid md:gap-4 gap-2 md:px-0 sm:grid-cols-2 grid-cols-2 lg:grid-cols-5 xl:grid-cols-5 max-w-7xl mx-auto">
         {services.map((service, index) => (
           <div
