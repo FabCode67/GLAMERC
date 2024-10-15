@@ -4,7 +4,7 @@ const SubFooter = () => {
   return (
     <div className='w-full bg-black text-white-200 '>
     <div
-    className='w-full px-4  flex text-sm justify-between max-w-7xl self-center mx-auto  text-center py-4'
+    className='w-full px-0  flex text-sm justify-between max-w-7xl self-center mx-auto  text-center py-4'
     >
         <p className='text-sm'>
             All Rights Reserved
