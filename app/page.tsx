@@ -12,7 +12,7 @@ import NavLogo from './components/NavLogo';
 
 const Home = () => {
   return (
-    <>
+    <div className='bg-white'>
       <Navbar />
       <NavLogo />
       <MainNav />
@@ -24,7 +24,7 @@ const Home = () => {
       <LocationSection />
       <Footer />
 
-    </>
+    </div>
   );
 };
 
