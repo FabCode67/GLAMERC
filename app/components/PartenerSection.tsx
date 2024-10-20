@@ -8,21 +8,21 @@ const PartenersSection = () => {
 
     // Array of logos
     const logos = [
-        'rssb.avif',
+        'sanlam.jpg',
         'britam.png',
+        'rssb.avif',
+        'mmi.png',
         'radiant.png',
         'old.png',
         'eden.png',
         'oxfam.png',
         'urwego.png',
-        'mmi.png',
         'rwandabar.png',
-        'notis.png',
+        'nets.jpg',
         'msh.jpeg',
-        'sanlam.jpg',
         'magerwa.webp',
-        'slver.png',
-        'prive-logo.webp',
+        'silver.jpg',
+        'prive.jpg',
     ];
     const totalPages = Math.ceil(logos.length / logosPerPage);
     const handlePageChange = (newPage:number) => {
