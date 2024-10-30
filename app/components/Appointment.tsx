@@ -49,7 +49,7 @@ const NewAppointment: React.FC<NewAppointmentProps> = ({ isModalVisible, selecte
     const [clinicians, setClinicians] = useState<Clinician[]>([]);
     const [statusClinisan, setStatusClinisan] = useState<Clinician | null>(null);
     const [cliniciansInfo, setCliniciansInfo] = useState<ClinicianInfo[]>([]);
-    const [availableDates, setAvailableDates] = useState<string[]>([]);
+    const [availableDates, setAvailableDates] = useState<string[] | undefined>(undefined);
     const [selectedTimeSlot, setSelectedTimeSlot] = useState<string | null>(null);
     const [isTimeSlotCalendarOpen, setIsTimeSlotCalendarOpen] = useState(false);
     const [loading, setLoading] = useState(false);
@@ -120,8 +120,8 @@ const NewAppointment: React.FC<NewAppointmentProps> = ({ isModalVisible, selecte
                 typeof statusClinisan?.value === 'number' ? statusClinisan.value : selectedClinician?.id ?? 0,
                 formattedLabel
             );
-            const keyDates = response && Array.isArray(response) ? response : [];
-            setAvailableDates(keyDates);
+            const keyDates = response && Object.keys(response);
+             setAvailableDates(keyDates);
         };
         getExistingSlots();
     }
@@ -299,7 +299,7 @@ const NewAppointment: React.FC<NewAppointmentProps> = ({ isModalVisible, selecte
                                 style={{
                                     height: "30px",
                                     borderRadius: "8px",
-                                    border: "none",
+                                    border: "1px",
                                     outline: "none",
                                     backgroundColor: "#F3F4F6",
                                     width: "100%",
