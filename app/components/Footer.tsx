@@ -6,7 +6,7 @@ import SubFooter from './SubFooter';
 const Footer = () => {
   return (
     <footer className="bg-gray-800 pt-12 text-gray-400">
-      <div className="container mx-auto max-w-7xl md:px-2 px-2 grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 md:px-2 grid grid-cols-1 md:grid-cols-3 gap-8">
         <div>
             <h4 className="text-lg font-semibold mb-4">Vision</h4>
             <p className="text-gray-400 text-[12px]">

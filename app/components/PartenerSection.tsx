@@ -8,9 +8,9 @@ const PartenersSection = () => {
 
     // Array of logos
     const logos = [
+        'rssb.avif',
         'sanlam.jpg',
         'britam.png',
-        'rssb.avif',
         'mmi.png',
         'radiant.png',
         'old.png',
@@ -35,8 +35,7 @@ const PartenersSection = () => {
     return (
         <section
             id="parteners"
-            className="text-medBlue flex flex-col w-full md:p-8 p-2 mx-auto text-gray-500 max-w-7xl min-h-screen items-center my-auto justify-center bg-white"
-        >
+            className="relative max-w-7xl flex flex-col gap-5 my-auto mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-16 sm:pt-20 sm:pb-20"        >
             <div className="w-full mx-auto text-center space-y-8 my-auto">
                 <h2 className="text-3xl md:text-4xl font-bold">PARTNERS</h2>
                 <p className="text-lg md:text-3xl">
