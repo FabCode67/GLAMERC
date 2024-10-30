@@ -4,7 +4,7 @@ import { MailOutlined, PhoneOutlined, EnvironmentOutlined, ClockCircleOutlined }
 const LocationSection = () => {
   return (
     <section id='contact' className=" min-h-screen py-10 md:px-0 px-3 pl-8 my-auto h-fit w-full bg-teal-500">
-     <div className="h-screen flex items-center max-w-7xl mx-auto my-auto mt-2 justify-center relative">
+     <div className="h-screen flex items-center max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 my-auto mt-2 justify-center relative">
       <div className="relative bg-white shadow-2xl rounded-[40px_10px_40px_10px] p-8 md:p-16 md:max-w-xl max-w-full text-center transform md:rotate-1 rotate-0">
         <h2 className="text-3xl font-bold text-gray-800 mb-6">
           Our Location

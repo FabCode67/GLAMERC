@@ -35,11 +35,11 @@ const MainNav = () => {
   return (
     <div
       ref={navRef}
-      className={`transition-all px-2 duration-300 ${
+      className={`transition-all duration-300 ${
         isFixed ? 'fixed top-0 w-full z-50 bg-white shadow-md' : 'bg-teal-600'
       }`}
     >
-      <div className={`container  mx-auto flex justify-between items-center py-4 max-w-7xl ${isFixed ? 'bg-white': 'bg-teal-600'}`}>
+      <div className={`container flex justify-between  mx-auto px-4 sm:px-6 lg:px-8  items-center py-4 max-w-7xl ${isFixed ? 'bg-white': 'bg-teal-600'}`}>
         <div className="flex items-center">
           <img src="/dentallogo.png" alt="Medico Logo" className="h-10 w-16 mr-2" />
           <span className={`text-xl font-semibold ${isFixed ? 'text-black':'text-white'}`}>Glamerc</span>

@@ -1,107 +1,175 @@
-import React from 'react';
-import { FaWhatsapp, FaPhoneAlt, FaEnvelope } from 'react-icons/fa';
+import { FaCalendarAlt } from 'react-icons/fa';
+import { motion } from 'framer-motion';
+import getDoctors from '@/app/server/apis';
+import { useEffect, useState } from 'react';
+import {  BsWhatsapp } from 'react-icons/bs';
+import { TfiEmail } from 'react-icons/tfi';
+import { PiPhoneBold } from 'react-icons/pi';
+import { LiaLinkedin } from 'react-icons/lia';
+import NewAppointment, { Clinician } from './Appointment';
 
-const clinicians = [
-  {
-    name: 'Dr. Jane Doe',
-    title: 'Cardiologist',
-    whatsapp: '+250 788 000 001',
-    phone: '+250 788 000 001',
-    email: 'jane.doe@example.com',
-  },
-  {
-    name: 'Dr. John Smith',
-    title: 'Dentist',
-    whatsapp: '+250 788 000 002',
-    phone: '+250 788 000 002',
-    email: 'john.smith@example.com',
-  },
-  {
-    name: 'Dr. Alice Johnson',
-    title: 'Neurosurgeon',
-    whatsapp: '+250 788 000 003',
-    phone: '+250 788 000 003',
-    email: 'alice.johnson@example.com',
-  },
-  {
-    name: 'Dr. Alice Johnson',
-    title: 'Neurosurgeon',
-    whatsapp: '+250 788 000 003',
-    phone: '+250 788 000 003',
-    email: 'alice.johnson@example.com',
-  },
-  {
-    name: 'Dr. Alice Johnson',
-    title: 'Neurosurgeon',
-    whatsapp: '+250 788 000 003',
-    phone: '+250 788 000 003',
-    email: 'alice.johnson@example.com',
-  },
- 
-];
+type Doctor = {
+    id: number;
+    active: boolean;
+    profile_picture_url?: string;
+    gender?: string;
+    first_name?: string;
+    last_name?: string;
+    role?: string;
+    phone?: string;
+    email?: string;
+}&Clinician;
 
-const TeamSection = () => {
-  return (
-    <section id='team' className="py-16 bg-gray-50">
-      {/* Title */}
-      <div className="text-center mb-12">
-        <h2 className="text-3xl font-bold text-gray-800">Meet Our Team</h2>
-        <p className="text-gray-500 px-3 mt-2">
-          Our dedicated medical professionals are here to help you.
-        </p>
-      </div>
-      <div className="mb-12 max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-lg text-center">
-        <img
-          src="/doctor.png"
-          alt="Clinic Admin"
-          className="h-28 w-28 mx-auto rounded-full mb-4 object-contain"
-        />
-        <h3 className="text-2xl font-semibold mb-2">Dr. Sarah Lee</h3>
-        <p className="text-gray-500 mb-4">Clinic Administrator</p>
-        <div className="flex justify-center space-x-6 text-gray-700 mb-6">
-          <a href="https://wa.me/250788000004" target="_blank" rel="noopener noreferrer">
-            <FaWhatsapp className="text-teal-600 text-xl" />
-          </a>
-          <a href="tel:+250788000004">
-            <FaPhoneAlt className="text-teal-600 text-xl" />
-          </a>
-          <a href="mailto:sarah.lee@example.com">
-            <FaEnvelope className="text-teal-600 text-xl" />
-          </a>
-        </div>
-        <button className="px-6 py-2 bg-teal-600 text-white rounded-md hover:bg-teal-700 transition duration-300">
-          Book Appointment
-        </button>
-      </div>
-      <div className="grid gap-2 sm:grid-cols-2 grid-cols-2  md:grid-cols-2 lg:grid-cols-5 max-w-7xl mx-auto">
-        {clinicians.map((clinician, index) => (
-          <div key={index} className="bg-white p-2 rounded-lg shadow-lg text-center">
-            <img
-              src={`/doctor.png`}
-              alt={clinician.name}
-              className="h-20 w-20 mx-auto rounded-full mb-4 object-contain"
-            />
-            <h3 className="md:text-xl text-sm font-semibold mb-2">{clinician.name}</h3>
-            <p className="text-gray-500 md:mb-4 mb-2">{clinician.title}</p>
-            <div className="flex justify-center space-x-6 text-gray-700 mb-6">
-              <a href={`https://wa.me/${clinician.whatsapp}`} target="_blank" rel="noopener noreferrer">
-                <FaWhatsapp className="text-teal-600 text-xl" />
-              </a>
-              <a href={`tel:${clinician.phone}`}>
-                <FaPhoneAlt className="text-teal-600 text-xl" />
-              </a>
-              <a href={`mailto:${clinician.email}`}>
-                <FaEnvelope className="text-teal-600 text-xl" />
-              </a>
+const TeamPage = () => {
+    const [isModalVisible, setIsModalVisible] = useState(false);
+    const [selectedClinician, setSelectedClinician] = useState<Clinician|null>(null);
+    const [teamData, setTeamData] = useState<Doctor[]>([]);
+    const [currentPage, setCurrentPage] = useState(1);
+    const itemsPerPage = 8;
+
+    useEffect(() => {
+        const fetchDoctors = async () => {
+            try {
+                const response = await getDoctors();
+                if (response && Array.isArray(response.data)) {
+                    setTeamData(response.data);
+                } else {
+                    console.error("Unexpected response structure:", response);
+                    setTeamData([]);
+                }
+            } catch (error) {
+                console.error("Error fetching doctors:", error);
+                setTeamData([]);
+            }
+        };
+        fetchDoctors();
+    }, []);
+
+    const showModal = (doctor: Doctor) => {
+        setSelectedClinician(doctor);
+        setIsModalVisible(true);
+    };
+
+    const handleCancel = () => {
+        setIsModalVisible(false);
+    };
+
+    const handlePageChange = (newPage: number) => {
+        setCurrentPage(newPage);
+    };
+
+    const paginatedDoctors = teamData
+        .filter(member => member.active)
+        .reverse()
+        .slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
+
+    const totalPages = Math.ceil(teamData.filter(member => member.active).length / itemsPerPage);
+
+    return (
+        <section id="team" className="bg-gray-100 py-4">
+            <div className="container mx-auto px-4 md:px-8 md:max-w-7xl w-full">
+                <h2 className="text-center text-4xl font-bold text-teal-600 mb-8">Meet Our Team</h2>
+                <div className='w-full flex flex-col'>
+                <div className="flex md:flex-row flex-col w-full md:space-x-4 space-x-0">
+                    {/* Static Team Member */}
+                    <motion.div
+                        whileHover={{ scale: 1.01 }}
+                        className="p-6 shadow rounded-xl flex flex-col items-center md:w-[30%] w-full md:h-[33rem] h-fit space-y-4"
+                    >
+                        <img src="/gm1.jpg" alt="team" className="object-cover h-[70%]" />
+                        <div className="text-center">
+                            <h3 className="text-lg font-medium text-gray-800">Godfrey Gafirita</h3>
+                        </div>
+                        <div className="text-center">
+                            <h3 className="text-xl font-semibold mt-0 text-gray-800">Director Manager</h3>
+                        </div>
+                        <div className="flex space-x-4 text-teal-600 mt-4">
+                            <a target="_blank" rel="noopener noreferrer" href="in/gafirita-godfrey">
+                                <LiaLinkedin size={20} />
+                            </a>
+                            <a target="_blank" rel="noopener noreferrer" href="tel:+2500784012286">
+                                <PiPhoneBold size={20} />
+                            </a>
+                            <a target="_blank" href="mailto:dentalimaging100@gmail.com" rel="noopener noreferrer">
+                                <TfiEmail size={20} />
+                            </a>
+                            <a target="_blank" rel="noopener noreferrer" href="https://wa.me/+2500784012286">
+                                <BsWhatsapp size={20} />
+                            </a>
+                        </div>
+                    </motion.div>
+
+                    {/* Doctors List with Pagination */}
+                    <div className="doctorsDiv grid lg:grid-cols-4 md:grid-cols-3 grid-cols-2 gap-3 md:w-[70%] md:mt-0 mt-5 w-full">
+                        {paginatedDoctors.length > 0 ? (
+                            paginatedDoctors.map((member, index) => (
+                                <motion.div
+                                    key={index}
+                                    className="bg-white md:p-2 p-1 text-sm md:rounded-xl rounded-none shadow-lg flex h-fit flex-col items-center space-y-2"
+                                >
+                                    <img
+                                        src={member.profile_picture_url ? member.profile_picture_url : member.gender === "Female" ? "/womandoc.png" : "mandoc.png"}
+                                        alt={member.first_name}
+                                        className={`w-full object-cover ${member.last_name === "NZABONIMANA" ? "h-[12.8rem]" : "md:h-56 h-48"}`}
+                                    />
+                                    <div className="text-center">
+                                        <h3 className="md:text-sm text-sm font-semibold text-gray-800">{member.first_name} {member.last_name}</h3>
+                                        <p className="text-teal-600">
+                                            {member.role && member.role.charAt(0).toUpperCase() + member.role.slice(1)}
+                                        </p>
+                                    </div>
+                                    {((member.role !== "receptionist") && (member.role !== "nurse") && (member.role !== "financial_manager") && (member.role !== "lab_technician") && (member.role !== "store_keeper")) ? (
+                                        <motion.button
+                                            whileHover={{ scale: 1.01 }}
+                                            className="bg-teal-600 w-fit text-sm text-white py-1 lg:px-2 md:text-xs lg:text-sm px-1 rounded-md justify-center mx-auto text-center inline-flex items-center space-x-2"
+                                            onClick={() => showModal(member)}
+                                        >
+                                            <FaCalendarAlt />
+                                            <span>Book Appointment</span>
+                                        </motion.button>
+                                    ) : (
+                                        <div className="flex space-x-4 py-1 text-teal-600">
+                                            <a target="_blank" rel="noopener noreferrer" href={`tel:${member.phone}`}>
+                                                <PiPhoneBold size={20} />
+                                            </a>
+                                            <a target="_blank" href={`mailto:dentalimaging100@gmail.com`} rel="noopener noreferrer">
+                                                <TfiEmail size={20} />
+                                            </a>
+                                            <a target="_blank" rel="noopener noreferrer" href={`https://wa.me/${member.phone}`}>
+                                                <BsWhatsapp size={20} />
+                                            </a>
+                                        </div>
+                                    )}
+                                </motion.div>
+                            ))
+                        ) : (
+                            <p>No active team members available.</p>
+                        )}
+                    </div>
+                 
+                    
+                </div>
+                <div className="flex justify-center space-x-4 mt-8">
+                        {Array.from({ length: totalPages }, (_, index) => (
+                            <button
+                                key={index}
+                                onClick={() => handlePageChange(index + 1)}
+                                className={`px-3 py-1 rounded-md ${currentPage === index + 1 ? 'bg-teal-600 text-white' : 'bg-gray-300 text-gray-700'}`}
+                            >
+                                {index + 1}
+                            </button>
+                        ))}
+                    </div>
+                </div>
             </div>
-            <button className="md:px-6 px-2 py-2 bg-teal-600 text-white rounded-md hover:bg-teal-700 transition duration-300">
-              Book Appointment
-            </button>
-          </div>
-        ))}
-      </div>
-    </section>
-  );
+            <NewAppointment 
+                    isModalVisible={isModalVisible}
+                    selectedClinician={selectedClinician}
+                    handleCancel={handleCancel}
+            />    
+        </section>
+    );
 };
 
-export default TeamSection;
+export default TeamPage;
+

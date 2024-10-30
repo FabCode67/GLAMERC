@@ -15,14 +15,14 @@ const services = [
 
 const ServiceSection = () => {
   return (
-    <section id='services' className="py-16 bg-teal-500 px-2 bg-fixed">
+    <section id="services" className="relative max-w-7xl flex flex-col gap-5 my-auto mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-16 sm:pt-20 sm:pb-20">
       <div className="text-center mb-12">
-        <h2 className="text-3xl font-bold text-gray-100">Our Specialty</h2>
-        <p className="text-gray-200 mt-2">
+        <h2 className="text-3xl font-bold text-gray-800">Our Specialty</h2>
+        <p className="text-gray-900 mt-2">
           We provide the world-class services with the best medical team!
         </p>
       </div>
-      <div className="grid md:gap-4 gap-2 md:px-0 sm:grid-cols-2 grid-cols-2 lg:grid-cols-5 xl:grid-cols-5 max-w-7xl mx-auto">
+      <div className="grid md:gap-4 gap-2 md:px-0 sm:grid-cols-2 bg-1slate-400 grid-cols-2 lg:grid-cols-5 xl:grid-cols-5 w-full ">
         {services.map((service, index) => (
           <div
             key={index}
