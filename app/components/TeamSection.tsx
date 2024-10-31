@@ -22,6 +22,7 @@ type Doctor = {
 
 const TeamPage = () => {
     const [isModalVisible, setIsModalVisible] = useState(false);
+    const [loading, setLoading] = useState(true);
     const [selectedClinician, setSelectedClinician] = useState<Clinician|null>(null);
     const [teamData, setTeamData] = useState<Doctor[]>([]);
     const [currentPage, setCurrentPage] = useState(1);
@@ -33,14 +34,18 @@ const TeamPage = () => {
                 const response = await getDoctors();
                 if (response && Array.isArray(response.data)) {
                     setTeamData(response.data);
+                    setLoading(false);
                 } else {
                     console.error("Unexpected response structure:", response);
                     setTeamData([]);
+                    setLoading(false);
                 }
             } catch (error) {
                 console.error("Error fetching doctors:", error);
                 setTeamData([]);
+                setLoading(false);
             }
+            setLoading(false);
         };
         fetchDoctors();
     }, []);
@@ -103,6 +108,13 @@ const TeamPage = () => {
                     <div className="doctorsDiv grid lg:grid-cols-4 md:grid-cols-3 grid-cols-2 gap-3 md:w-[70%] md:mt-0 mt-5 w-full">
                         {paginatedDoctors.length > 0 ? (
                             paginatedDoctors.map((member, index) => (
+                                <>
+                                {
+                                    loading ? (
+                                        <div className="flex mx-auto justify-center items-center h-full w-full">
+                                            <p>Loading...</p>
+                                        </div>
+                                    ) : (
                                 <motion.div
                                     key={index}
                                     className="bg-white md:p-2 p-1 text-sm md:rounded-xl rounded-none shadow-lg flex h-fit flex-col items-center space-y-2"
@@ -141,15 +153,24 @@ const TeamPage = () => {
                                         </div>
                                     )}
                                 </motion.div>
+                                    )}
+                                </>
+
                             ))
                         ) : (
-                            <p>No active team members available.</p>
+                          <div className="flex mx-auto justify-center items-center h-full w-full">
+                            {loading ? (
+                                <p className='  mx-auto justify-center'>Loading Clinicians...</p>
+                            ) : (
+                                <p>No active team members available.</p>
+                        )}
+                        </div>
                         )}
                     </div>
                  
                     
                 </div>
-                <div className="flex justify-center space-x-4 mt-8">
+                <div className="flex justify-end ml-auto space-x-4 mt-8">
                         {Array.from({ length: totalPages }, (_, index) => (
                             <button
                                 key={index}
