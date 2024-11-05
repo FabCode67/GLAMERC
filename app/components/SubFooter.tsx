@@ -13,14 +13,24 @@ const SubFooter = () => {
             &copy; glamerc 2024  
         </p>
        <p>Developed by{' '}
-            <a
+            {/* <a
             href='xanahealth.io'
-            target='_blank'
-            rel='noreferrer'
             className='text-gray-200 font-bold'
             >
             Karisimbi Technologies Solutions
+            </a> */}
+
+            {/* open new tab with new link */}
+            <a
+            href='https://xanahealth.io'
+            target='_blank'
+            rel='noopener noreferrer'
+            className='text-gray-200 font-bold'
+            >
+            XanaHealth
             </a>
+
+
             </p> 
         
     </div>
