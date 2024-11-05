@@ -1,7 +1,7 @@
 import { FaCalendarAlt } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 import getDoctors from '@/app/server/apis';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import {  BsWhatsapp } from 'react-icons/bs';
 import { TfiEmail } from 'react-icons/tfi';
 import { PiPhoneBold } from 'react-icons/pi';
@@ -27,7 +27,7 @@ const TeamPage = () => {
     const [teamData, setTeamData] = useState<Doctor[]>([]);
     const [currentPage, setCurrentPage] = useState(1);
     const itemsPerPage = 8;
-
+    const sectionRef = useRef<HTMLElement>(null);
     useEffect(() => {
         const fetchDoctors = async () => {
             try {
@@ -58,20 +58,22 @@ const TeamPage = () => {
     const handleCancel = () => {
         setIsModalVisible(false);
     };
-
     const handlePageChange = (newPage: number) => {
         setCurrentPage(newPage);
     };
 
+    useEffect(() => {
+        sectionRef.current?.scrollIntoView({ behavior: 'smooth' });
+    }, [currentPage]);
     const paginatedDoctors = teamData
-        .filter(member => member.active)
-        .reverse()
-        .slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
+    .filter(member => member.active)
+    .reverse()
+    .slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
 
-    const totalPages = Math.ceil(teamData.filter(member => member.active).length / itemsPerPage);
+const totalPages = Math.ceil(teamData.filter(member => member.active).length / itemsPerPage);
 
     return (
-        <section id="team" className="bg-gray-100 py-4">
+        <section id="team" className="bg-gray-100 py-4" ref={sectionRef}>
             <div className="container mx-auto px-4 md:px-8 md:max-w-7xl w-full">
                 <h2 className="text-center text-4xl font-bold text-teal-600 mb-8">Meet Our Team</h2>
                 <div className='w-full flex flex-col'>
@@ -125,9 +127,9 @@ const TeamPage = () => {
                                         className={`w-full object-cover ${member.last_name === "NZABONIMANA" ? "h-[12.8rem]" : "md:h-56 h-48"}`}
                                     />
                                     <div className="text-center">
-                                        <h3 className="md:text-sm text-sm font-semibold text-gray-800">{member.first_name} {member.last_name}</h3>
+                                        <h3 className="md:text-sm text-sm font-semibold text-gray-800">{member.first_name} {' '} {member.last_name}</h3>
                                         <p className="text-teal-600">
-                                            {member.role && member.role.charAt(0).toUpperCase() + member.role.slice(1)}
+                                            {member?.first_name === "Godfrey" && member?.last_name === "Gafirita" ? "Registered Dental Therapist" : member?.first_name==="Pacifique" && member?.last_name==="OMWETOWAZE" ? "Registered Dental Therapist" : member.first_name ==="Vincent" && member.last_name==="MUGAMBIRA" ? "Registered Dental Therapist" : member.last_name==="MUZIMBA" ? " Dental surgeon" : member.last_name ==="UWIMANA" ? "Dental surgeon" : member.last_name==="NZABONIMANA" ? "Registered Dental Therapist" : member.first_name ==="Valentine" && member.last_name==="KAMPUNGA" ? "Chief accountant" : member.last_name==="KABASINGA" ? "Verification officer" :  member.last_name==="KAMATENESI" ? "Receptionist & Cashier" :  member.last_name==="MUTAMBARUNGU" ? "Receptionist & Cashier" : member.first_name ==="Emmanuel" && member.last_name==="Turikumwe" ? "Dental Assistant" : member.first_name ==="Kevine" && member.last_name==="UMUHOZA" ? "Dental Assistant" : member.first_name === "Dinah" && member.last_name === "TUMUKUNDE" ? "Dental Assistant": member.first_name === "Mukamuhirwa"?"Housekeeper": member.first_name === "Mukanyandwi"?"Housekeeper":  member.last_name === "Uwineza" ? "Dental Assistant": member.role}
                                         </p>
                                     </div>
                                     {((member.role !== "receptionist") && (member.role !== "nurse") && (member.role !== "financial_manager") && (member.role !== "lab_technician") && (member.role !== "store_keeper")) ? (
