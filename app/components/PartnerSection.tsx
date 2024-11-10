@@ -34,7 +34,7 @@ const PartenersSection = () => {
 
     return (
         <section
-            id="parteners"
+            id="partners"
             className="relative max-w-7xl flex flex-col gap-5 my-auto mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-16 sm:pt-20 sm:pb-20"        >
             <div className="w-full mx-auto text-center space-y-8 my-auto">
                 <h2 className="text-3xl md:text-4xl font-bold">PARTNERS</h2>

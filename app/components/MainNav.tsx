@@ -57,8 +57,8 @@ const MainNav = () => {
           <Link href="#team">
             <p className={`${isFixed ? 'text-gray-700 hover:text-teal-600':'text-white hover:text-slate-300'}`}>Team</p>
           </Link>
-          <Link href="#parteners">
-            <p className={`${isFixed ? 'text-gray-700 hover:text-teal-600':'text-white hover:text-slate-300'}`}>Parteners</p>
+          <Link href="#partners">
+            <p className={`${isFixed ? 'text-gray-700 hover:text-teal-600':'text-white hover:text-slate-300'}`}>Partners</p>
           </Link>
           <Link href="#contact">
             <p className={`${isFixed ? 'text-gray-700 hover:text-teal-600':'text-white hover:text-slate-300'}`}>Contact</p>
@@ -101,7 +101,7 @@ const MainNav = () => {
               <p className={`${isFixed ? 'text-gray-700 hover:text-teal-600':'text-white hover:text-slate-300'}`}>Team</p>
             </Link>
             <Link href="#parteners">
-              <p className={`${isFixed ? 'text-gray-700 hover:text-teal-600':'text-white hover:text-slate-300'}`}>Parteners</p>
+              <p className={`${isFixed ? 'text-gray-700 hover:text-teal-600':'text-white hover:text-slate-300'}`}>Partners</p>
             </Link>
             <Link href="#contact">
               <p className={`${isFixed ? 'text-gray-700 hover:text-teal-600':'text-white hover:text-slate-300'}`}>Contact</p>
