@@ -88,7 +88,7 @@ const totalPages = Math.ceil(teamData.filter(member => member.active).length / i
                             <h3 className="text-lg font-medium text-gray-800">Godfrey Gafirita</h3>
                         </div>
                         <div className="text-center">
-                            <h3 className="text-xl font-semibold mt-0 text-gray-800">Director Manager</h3>
+                            <h3 className="text-xl font-semibold mt-0 text-gray-800">Managing Director</h3>
                         </div>
                         <div className="flex space-x-4 text-teal-600 mt-4">
                             <a target="_blank" rel="noopener noreferrer" href="in/gafirita-godfrey">
@@ -132,7 +132,7 @@ const totalPages = Math.ceil(teamData.filter(member => member.active).length / i
                                             {member?.first_name === "Godfrey" && member?.last_name === "Gafirita" ? "Registered Dental Therapist" : member?.first_name==="Pacifique" && member?.last_name==="OMWETOWAZE" ? "Registered Dental Therapist" : member.first_name ==="Vincent" && member.last_name==="MUGAMBIRA" ? "Registered Dental Therapist" : member.last_name==="MUZIMBA" ? " Dental surgeon" : member.last_name ==="UWIMANA" ? "Dental surgeon" : member.last_name==="NZABONIMANA" ? "Registered Dental Therapist" : member.first_name ==="Valentine" && member.last_name==="KAMPUNGA" ? "Chief accountant" : member.last_name==="KABASINGA" ? "Verification officer" :  member.last_name==="KAMATENESI" ? "Receptionist & Cashier" :  member.last_name==="MUTAMBARUNGU" ? "Receptionist & Cashier" : member.first_name ==="Emmanuel" && member.last_name==="Turikumwe" ? "Dental Assistant" : member.first_name ==="Kevine" && member.last_name==="UMUHOZA" ? "Dental Assistant" : member.first_name === "Dinah" && member.last_name === "TUMUKUNDE" ? "Dental Assistant": member.first_name === "Mukamuhirwa"?"Housekeeper": member.first_name === "Mukanyandwi"?"Housekeeper":  member.last_name === "Uwineza" ? "Dental Assistant": member.role}
                                         </p>
                                     </div>
-                                    {((member.role !== "receptionist") && (member.role !== "nurse") && (member.role !== "financial_manager") && (member.role !== "lab_technician") && (member.role !== "store_keeper")) ? (
+                                    {((member.role !== "receptionist") && (member.role !== "nurse") && (member.role !== "finance_manager") && (member.role !== "lab_technician") && (member.role !== "store_keeper") && (member.role !== "customer_care")) ? (
                                         <motion.button
                                             whileHover={{ scale: 1.01 }}
                                             className="bg-teal-600 w-fit text-sm text-white py-1 lg:px-2 md:text-xs lg:text-sm px-1 rounded-md justify-center mx-auto text-center inline-flex items-center space-x-2"
