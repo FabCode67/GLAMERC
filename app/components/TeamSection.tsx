@@ -1,7 +1,7 @@
 import { FaCalendarAlt } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 import getDoctors from '@/app/server/apis';
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState } from 'react';
 import {  BsWhatsapp } from 'react-icons/bs';
 import { TfiEmail } from 'react-icons/tfi';
 import { PiPhoneBold } from 'react-icons/pi';
@@ -27,7 +27,7 @@ const TeamPage = () => {
     const [teamData, setTeamData] = useState<Doctor[]>([]);
     const [currentPage, setCurrentPage] = useState(1);
     const itemsPerPage = 8;
-    const sectionRef = useRef<HTMLElement>(null);
+    // const sectionRef = useRef<HTMLElement>(null);
     useEffect(() => {
         const fetchDoctors = async () => {
             try {
@@ -62,18 +62,18 @@ const TeamPage = () => {
         setCurrentPage(newPage);
     };
 
-    useEffect(() => {
-        sectionRef.current?.scrollIntoView({ behavior: 'smooth' });
-    }, [currentPage]);
-    const paginatedDoctors = teamData
+    // useEffect(() => {
+    //     sectionRef.current?.scrollIntoView({ behavior: 'smooth' });
+    // }, [currentPage]);
+    const paginatedDoctors = teamData.filter(member => member.role === "dentist")
     .filter(member => member.active)
     .reverse()
     .slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
 
-const totalPages = Math.ceil(teamData.filter(member => member.active).length / itemsPerPage);
+const totalPages = Math.ceil(paginatedDoctors.filter(member => member.active).length / itemsPerPage);
 
     return (
-        <section id="team" className="bg-gray-100 py-4" ref={sectionRef}>
+        <section id="team" className="bg-gray-100 py-4">
             <div className="container mx-auto px-4 md:px-8 md:max-w-7xl w-full">
                 <h2 className="text-center text-4xl font-bold text-teal-600 mb-8">Meet Our Team</h2>
                 <div className='w-full flex flex-col'>

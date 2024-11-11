@@ -58,10 +58,10 @@ const HeroSection = () => {
 
                         {/* Trust Indicators */}
                         <div className="flex gap-4 flex-wrap">
-                            <div className="flex items-center gap-2">
+                            {/* <div className="flex items-center gap-2">
                                 <SiTarget className="w-5 h-5 text-yellow-400" />
                                 <span className="font-semibold">4.9/5 (500+ Reviews)</span>
-                            </div>
+                            </div> */}
                             <div className="flex items-center gap-2">
                                 <BsShieldFill className="w-5 h-5 text-teal-600" />
                                 <span className="font-semibold">Certified Specialists</span>
@@ -90,7 +90,7 @@ const HeroSection = () => {
                                 </div>
                                 <div>
                                     <h3 className="font-semibold text-gray-900">Flexible Hours</h3>
-                                    <p className="text-gray-600">Mon-Sat: 8AM-8PM<br />Sun: 9AM-4PM</p>
+                                    <p className="text-gray-600">Mon-Sun: 8AM-8PM<br />Public Holydays: 9AM-4PM</p>
                                 </div>
                             </div>
                             <div className="flex items-start gap-4">
@@ -144,7 +144,7 @@ const HeroSection = () => {
                 </div>
 
                 {/* Bottom Trust Bar */}
-                <div className="mt-16 pt-8 border-t border-gray-200">
+                {/* <div className="mt-16 pt-8 border-t border-gray-200">
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
                         <div className="text-center">
                             <div className="text-3xl font-bold text-teal-600">15+</div>
@@ -163,7 +163,7 @@ const HeroSection = () => {
                             <div className="text-gray-600">Satisfaction Rate</div>
                         </div>
                     </div>
-                </div>
+                </div> */}
             </div>
         </div>
     );
