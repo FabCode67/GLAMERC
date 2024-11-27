@@ -14,6 +14,7 @@ const PartenersSection = () => {
         'mmi.png',
         'radiant.png',
         'old.png',
+        'prime.png',
         'eden.png',
         'oxfam.png',
         'urwego.png',
