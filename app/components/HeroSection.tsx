@@ -90,10 +90,10 @@ const HeroSection = () => {
                                 </div>
                                 <div>
                                     <h3 className="font-semibold text-gray-900">Flexible Hours</h3>
-                                    <p className="text-gray-600">Mon-Sun: 8AM-8PM<br />Public Holydays: 9AM-4PM</p>
+                                    <p className="text-gray-600">Mon-Sun: 8AM-8PM<br />Public Holydays: 8AM-8PM</p>
                                 </div>
                             </div>
-                            <div className="flex items-start gap-4">
+                            {/* <div className="flex items-start gap-4">
                                 <div className="bg-teal-100 p-3 rounded-lg">
                                     <BiArrowBack className="w-6 h-6 text-teal-600" />
                                 </div>
@@ -101,7 +101,7 @@ const HeroSection = () => {
                                     <h3 className="font-semibold text-gray-900">Emergency Care</h3>
                                     <p className="text-gray-600">24/7 emergency dental<br />services available</p>
                                 </div>
-                            </div>
+                            </div> */}
                         </div>
                     </div>
 

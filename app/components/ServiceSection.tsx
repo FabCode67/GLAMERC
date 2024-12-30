@@ -1,57 +1,134 @@
 import React from 'react';
+import { Card, Typography, Row, Col } from 'antd';
 
-const services = [
-  { title: "Orthodontic treatments such as braces and clear aligners", description: "", icon: "/im1.png" },
-  { title: "Root canal therapy (RCT), ", description: "Root canal therapy is a treatment used to repair and save a tooth that is badly decayed or infected.", icon: "/im2.png" },
-  { title: "Pulpotomy for milk teeth, ", description: "Pulpotomy is a procedure to save a tooth that has an inflamed pulp", icon: "/im10.png" },
-  { title: "Fillings", description: "Glass ionomer cement fillings, Composite resin fillings, Amalgam fillings", icon: "/im3.png" },
-  { title: "Extractions", description: "Simple extractions, Surgical extractions, Wisdom teeth extractions", icon: "/im4.png" },
-  { title: "Removable , fixed dentures and implants ", description: "", icon: "/im5.png" },
-  { title: "Scaling and root planning", description: "Gum treatment for gum disease", icon: "/im6.png" , highlighted: true},
-  { title: "Dental X-rays ", description: "Peri-apical x-rays and orthopantomogram/ Panoramic X-ray (OPG)", icon: "/im7.png" },
-  { title: "Teeth whitening", description: "In-office teeth whitening, Home teeth whitening", icon: "/im8.png" },
-  { title: "Retainers and night guards.", description: "Get your retainers and night guards", icon: "/im9.png" },
-];
+const { Title, Paragraph } = Typography;
+
+const ServiceCard = ({ service }:any) => (
+  <Card
+    hoverable
+    bodyStyle={{padding: "3px"}}
+    className={`h-full p-0 ${
+      service.highlighted ? 'bg-teal-500 text-white' : 'bg-white'
+    }`}
+    cover={
+      <div className="p-4">
+        <img
+          alt={service.title}
+          src={service.icon}
+          className="w-full aspect-square object-contain rounded-lg transition-transform duration-300 hover:scale-105"
+        />
+      </div>
+    }
+  >
+    <Title level={4} className={`mb-2 ${service.highlighted ? 'text-white' : 'text-gray-800'}`}>
+      {service.title}
+    </Title>
+    {service.description && (
+      <Paragraph className={service.highlighted ? 'text-blue-50' : 'text-gray-600'}>
+        {service.description}
+      </Paragraph>
+    )}
+  </Card>
+);
 
 const ServiceSection = () => {
   return (
-    <section id="services" className="relative max-w-7xl flex flex-col gap-5 my-auto mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-16 sm:pt-20 sm:pb-20">
-      <div className="text-center mb-12">
-        <h2 className="text-3xl font-bold text-gray-800">Our Specialty</h2>
-        <p className="text-gray-900 mt-2">
-          We provide the world-class services with the best medical team!
-        </p>
-      </div>
-      <div className="grid md:gap-4 gap-2 md:px-0 sm:grid-cols-2 bg-1slate-400 grid-cols-2 lg:grid-cols-5 xl:grid-cols-5 w-full ">
-        {services.map((service, index) => (
-          <div
-            key={index}
-            className={`p-6  rounded-lg shadow-md transition-all duration-300 ${
-              service.highlighted ? 'bg-teal-500 text-white' : 'hover:bg-blue-50 bg-white'
-            }`}
-          >
-            <div
-              className={`text-4xl mb-4 ${
-                service.highlighted ? 'bg-white text-teal-500 rounded-full px-2' : 'text-teal-500'
-              }`}
+    <section className="py-16 lg:py-24 bg-gradient-to-b from-gray-50 to-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-16">
+          <Title level={2} className="mb-4">
+            Our Specialty
+          </Title>
+          <Paragraph className="text-xl text-gray-600">
+            We provide world-class services with the best medical team!
+          </Paragraph>
+        </div>
+
+        <div className="grid grid-cols-2 md:grid-cols-3 p-0 lg:grid-cols-4 md:gap-8 gap-2">
+          {services.map((service, index) => (
+            <div 
+              key={index}
+             
+              className="flex"
             >
-                <img src={service.icon} alt={service.title} className='h-16 w-16 object-contain' />
+              <div className="w-full animate-fadeIn" style={{
+                animation: `fadeIn 0.5s ease-out ${index * 0.1}s both`
+              }}>
+                <ServiceCard service={service} />
+              </div>
             </div>
-
-            <h3 className={`text-lg font-semibold mb-2 ${
-              service.highlighted ? 'text-white' : 'text-gray-800'
-            }`}>
-              {service.title}
-            </h3>
-
-            <p className={`${service.highlighted ? 'text-blue-200' : 'text-gray-500'}`}>
-              {service.description}
-            </p>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
+
+      <style jsx>{`
+        @keyframes fadeIn {
+          from {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+      `}</style>
     </section>
   );
 };
+
+const services = [
+  {
+    title: "Orthodontic Treatments",
+    description: "Professional braces and clear aligners for perfect smile alignment",
+    icon: "/services/clear_align.jpg"
+  },
+  {
+    title: "Root Canal Therapy (RCT)",
+    description: "Root canal therapy is a treatment used to repair and save a tooth that is badly decayed or infected.",
+    icon: "/services/root_canal.jpg"
+  },
+  {
+    title: "Pulpotomy for Milk Teeth",
+    description: "Pulpotomy is a procedure to save a tooth that has an inflamed pulp",
+    icon: "/services/pulOptomy.jpg"
+  },
+  {
+    title: "Fillings",
+    description: "Glass ionomer cement fillings, Composite resin fillings, Amalgam fillings",
+    icon: "/services/tooth_filling.jpg"
+  },
+  {
+    title: "Extractions",
+    description: "Simple extractions, Surgical extractions, Wisdom teeth extractions",
+    icon: "/im4.png"
+  },
+  {
+    title: "Dentures & Implants",
+    description: "Removable and fixed dentures plus dental implant solutions",
+    icon: "/im5.png"
+  },
+  {
+    title: "Scaling & Root Planning",
+    description: "Gum treatment for gum disease",
+    icon: "/im6.png",
+    highlighted: false
+  },
+  {
+    title: "Dental X-rays",
+    description: "Peri-apical x-rays and orthopantomogram/ Panoramic X-ray (OPG)",
+    icon: "/im7.png"
+  },
+  {
+    title: "Teeth Whitening",
+    description: "In-office teeth whitening, Home teeth whitening",
+    icon: "/im8.png"
+  },
+  {
+    title: "Retainers & Night Guards",
+    description: "Get your retainers and night guards",
+    icon: "/im9.png"
+  }
+];
 
 export default ServiceSection;
