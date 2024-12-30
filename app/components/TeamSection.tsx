@@ -65,11 +65,21 @@ const TeamPage = () => {
     // useEffect(() => {
     //     sectionRef.current?.scrollIntoView({ behavior: 'smooth' });
     // }, [currentPage]);
-    
-    const paginatedDoctors = teamData.filter(member => member.role === "dentist" && member.first_name !=='Dr Gilbert Cham ')
-        .filter(member => member.active)
-        .reverse()
-        .slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
+
+    const doeMember = teamData?.find(member => member.last_name === "OMWETOWAZE");
+const otherMembers = teamData?.filter(member => member.role === "dentist" && member.first_name !== 'Dr Gilbert Cham ' && member.last_name !== "OMWETOWAZE")
+    .filter(member => member.active)
+    .reverse();
+
+let paginatedDoctors = otherMembers.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
+
+if (doeMember) {
+    paginatedDoctors = paginatedDoctors.filter(member => member.last_name !== "OMWETOWAZE");
+    paginatedDoctors.push(doeMember);
+}
+//display only last doe member
+
+
 
     const totalPages = Math.ceil(paginatedDoctors.filter(member => member.active).length / itemsPerPage);
 
