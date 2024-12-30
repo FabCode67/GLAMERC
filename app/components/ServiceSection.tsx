@@ -1,9 +1,16 @@
 import React from 'react';
-import { Card, Typography, Row, Col } from 'antd';
+import { Card, Typography } from 'antd';
 
 const { Title, Paragraph } = Typography;
 
-const ServiceCard = ({ service }:any) => (
+interface Service {
+  title: string;
+  description?: string;
+  icon: string;
+  highlighted?: boolean;
+}
+
+const ServiceCard = ({ service }: { service: Service }) => (
   <Card
     hoverable
     bodyStyle={{padding: "3px"}}
