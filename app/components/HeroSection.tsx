@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link';
-import { BiArrowBack, BiCalendar } from 'react-icons/bi';
+import { BiCalendar } from 'react-icons/bi';
 import { BsShieldFill } from 'react-icons/bs';
 import { CgLock } from 'react-icons/cg';
 import { PiPhone } from 'react-icons/pi';
