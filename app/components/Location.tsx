@@ -15,6 +15,7 @@ const LocationSection = () => {
               fill
               className="object-fill"
               priority
+              loading='lazy'
             />
           </div>
 

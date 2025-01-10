@@ -79,8 +79,6 @@ const NewAppointment: React.FC<NewAppointmentProps> = ({ isModalVisible, selecte
             const clinicians = await getAllCliniciansFromParticularClinic();
             const activeClinicians = clinicians.filter((clinician: Clinician) => clinician?.active);
             setClinicians(activeClinicians);
-            console.log("all c", clinicians);
-
         };
         fetchClinicians();
         // }
@@ -91,9 +89,6 @@ const NewAppointment: React.FC<NewAppointmentProps> = ({ isModalVisible, selecte
             const allClinicians = clinicians.map((clinician: Clinician) => {
                 return { id: clinician.id, title: clinician.first_name + " " + clinician.last_name, role: clinician?.role };
             });
-
-            console.log("all c", allClinicians);
-
             setCliniciansInfo(allClinicians);
         }
         getAllCliniciansInfo();
