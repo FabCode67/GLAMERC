@@ -109,7 +109,7 @@ const HeroSection = () => {
                     <div className="space-y-4">
                         <div className="relative h-[400px] rounded-2xl overflow-hidden shadow-2xl">
                             <img
-                                src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=800"
+                                src="/dent1.jpg"
                                 alt="Modern dental clinic interior"
 
                                 height={100}
@@ -121,7 +121,7 @@ const HeroSection = () => {
                         <div className="grid grid-cols-2 gap-4">
                             <div className="relative h-[200px] rounded-xl overflow-hidden shadow-lg">
                                 <img
-                                    src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=400"
+                                    src="/recept.jpg"
                                     alt="Dental treatment"
 
                                     height={100}
@@ -131,7 +131,7 @@ const HeroSection = () => {
                             </div>
                             <div className="relative h-[200px] rounded-xl overflow-hidden shadow-lg">
                                 <img
-                                    src="https://images.unsplash.com/photo-1609840114035-3c981b782dfe?w=400"
+                                    src="/dent3.jpg"
                                     alt="Happy patient smiling"
 
                                     height={100}
