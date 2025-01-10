@@ -9,7 +9,7 @@ const Footer = () => {
       <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 md:px-2 grid grid-cols-1 md:grid-cols-3 gap-8">
         <div>
             <h4 className="text-lg font-semibold mb-4">Vision</h4>
-            <p className="text-gray-400 text-[12px]">
+            <p className="text-gray-400 text-[13px]">
             Our vision is to become a center of excellence in dental care, establishing ourselves as a respected clinic that fosters lifelong relationships built on trust, confidence, and quality. We are committed to delivering exceptional patient care, providing the highest standards of dental services, and continuously advancing our expertise to ensure that every patient experiences the best in oral health. Through our dedication to innovation and excellence, we aim to be the preferred choice for dental care in our community, creating lasting impacts on the lives we touch.
             </p>
         </div>
