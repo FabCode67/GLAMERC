@@ -120,14 +120,9 @@ const HeroSection = () => {
                         </div>
                         <div className="grid grid-cols-2 gap-4">
                             <div className="relative h-[200px] rounded-xl overflow-hidden shadow-lg">
-                                <img
-                                    src="/recept.jpg"
-                                    alt="Dental treatment"
+                               
+                                  <img src="/recept.jpg" alt="team" className="object-cover h-[70%]" />
 
-                                    height={100}
-                                    width={100}
-                                    className="object-cover h-full w-full"
-                                />
                             </div>
                             <div className="relative h-[200px] rounded-xl overflow-hidden shadow-lg">
                                 <img
