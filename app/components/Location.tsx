@@ -10,7 +10,7 @@ const LocationSection = () => {
         <div className="w-full flex flex-col-reverse lg:flex-row gap-8 items-center justify-between">
           <div className="lg:w-1/2 w-full relative aspect-[4/3] rounded-[40px_10px_40px_10px] overflow-hidden shadow-2xl">
             <Image
-              src="/contact.jpg" 
+              src="/images/contact.jpg" 
               alt="Location Image"
               fill
               className="object-fill"
