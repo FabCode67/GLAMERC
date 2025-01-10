@@ -111,7 +111,6 @@ const HeroSection = () => {
                             <img
                                 src="/dent1.jpg"
                                 alt="Modern dental clinic interior"
-
                                 height={100}
                                 width={100}
                                 className="object-cover h-full w-full"
@@ -133,9 +132,6 @@ const HeroSection = () => {
                                 <img
                                     src="/dent3.jpg"
                                     alt="Happy patient smiling"
-
-                                    height={100}
-                                    width={100}
                                     className="object-cover h-full w-full"
                                 />
                             </div>

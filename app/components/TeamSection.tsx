@@ -81,10 +81,7 @@ if (doeMember) {
 
 
 
-    const totalPages = Math.ceil(paginatedDoctors.filter(member => member.active).length / itemsPerPage);
-
-    console.log("Total Pages:", paginatedDoctors);
-    
+    const totalPages = Math.ceil(paginatedDoctors.filter(member => member.active).length / itemsPerPage);    
     return (
         <section id="team" className="bg-gray-100 py-4">
             <div className="container mx-auto px-4 md:px-8 md:max-w-7xl w-full">
