@@ -109,7 +109,7 @@ const HeroSection = () => {
                     <div className="space-y-4">
                         <div className="relative h-[400px] rounded-2xl overflow-hidden shadow-2xl">
                             <img
-                                src="/dent1.jpg"
+                                src="/images/dent1.jpg"
                                 alt="Modern dental clinic interior"
 
                                 height={100}
@@ -120,20 +120,18 @@ const HeroSection = () => {
                         </div>
                         <div className="grid grid-cols-2 gap-4">
                             <div className="relative h-[200px] rounded-xl overflow-hidden shadow-lg">
-                                {/* <img
-                                    src="/recept.jpg"
+                                <img
+                                    src="/images/recept.jpg"
                                     alt="Dental treatment"
 
                                     height={100}
                                     width={100}
                                     className="object-cover h-full w-full"
-                                /> */}
-                                                            <img src="/gm1.jpg" alt="team" className="object-cover h-[70%]" />
-
+                                />
                             </div>
                             <div className="relative h-[200px] rounded-xl overflow-hidden shadow-lg">
                                 <img
-                                    src="/dent3.jpg"
+                                    src="/images/dent3.jpg"
                                     alt="Happy patient smiling"
 
                                     height={100}
