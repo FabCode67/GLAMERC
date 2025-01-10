@@ -8,19 +8,16 @@ const LocationSection = () => {
     <section id='contact' className="min-h-screen py-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center">
         <div className="w-full flex flex-col-reverse lg:flex-row gap-8 items-center justify-between">
-          {/* Image Section */}
           <div className="lg:w-1/2 w-full relative aspect-[4/3] rounded-[40px_10px_40px_10px] overflow-hidden shadow-2xl">
             <Image
               src="/contact.jpg" 
               alt="Location Image"
               fill
               className="object-fill"
-              // sizes="(max-width: 1024px) 100vw, 50vw"
               priority
             />
           </div>
 
-          {/* Content Section */}
           <div className="lg:w-[40%]  w-[95%] relative">
             <div className="relative bg-white shadow-2xl rounded-[40px_10px_40px_10px] p-8 md:py-10 px-4 text-center transform hover:scale-[1.02] transition-transform">
               <h2 className="text-3xl font-bold text-gray-600 mb-6">
