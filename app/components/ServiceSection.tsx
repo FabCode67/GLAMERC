@@ -98,7 +98,7 @@ const services = [
   {
     title: "Pulpotomy for Milk Teeth",
     description: "Pulpotomy is a procedure to save a tooth that has an inflamed pulp",
-    icon: "/services/pulOptomy.jpg"
+    icon: "plumo.jpg"
   },
   {
     title: "Fillings",
