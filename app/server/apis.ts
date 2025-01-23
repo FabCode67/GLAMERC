@@ -34,8 +34,8 @@ export default async function getDoctors() {
   try {
     const roles = ["doctor", "dentist", "lab_technician", "counselor", "psychologist", "psychiatrist", "financial_manager", "receptionist"]; 
     api.defaults.baseURL = `https://${process.env.NEXT_PUBLIC_SUBDOMAIN}.${process.env.NEXT_PUBLIC_API_DOMAIN}/api`;
-    const res = await api.get(`/users?role=${roles.join(",")}`);
-    if (res.status === 200) return res.data;
+    const res = await api.get(`/all_doctors?clinic_id=${process.env.NEXT_PUBLIC_ID}&roles=${roles.join(",")}`);
+    if (res.status === 200) return res;
   } catch (e) {
     return { error: e };
   }

@@ -9,6 +9,7 @@ import PartenersSection from './components/PartnerSection';
 import Footer from './components/Footer';
 import LocationSection from './components/Location';
 import NavLogo from './components/NavLogo';
+import ClinicFeatures from './components/WhyUs';
 
 const Home = () => {
   return (

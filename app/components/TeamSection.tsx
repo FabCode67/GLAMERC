@@ -31,7 +31,7 @@ const TeamPage = () => {
     useEffect(() => {
         const fetchDoctors = async () => {
             try {
-                const response = await getDoctors();
+                const response:any = await getDoctors();
                 if (response && Array.isArray(response.data)) {
                     setTeamData(response.data);
                     setLoading(false);

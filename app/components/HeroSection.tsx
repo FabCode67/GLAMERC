@@ -46,13 +46,12 @@ const HeroSection = () => {
                                 <SiTarget className="w-5 h-5 fill-current" />
                                 <span className="font-semibold">Top-Rated Dental Clinic in the City</span>
                             </div>
-                            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900">
+                            <h1 className="text-3xl sm:text-4xl lg:text-4xl font-bold text-gray-900">
                                 Transform Your Smile at{' '}
-                                <span className="text-teal-600">Glameric Dental Clinic</span>
+                                <span className="text-teal-600 lg:text-5xl">Glameric Dental Clinic</span>
                             </h1>
                             <p className="text-xl text-gray-600 max-w-2xl">
-                                Experience the perfect blend of comfort and advanced dentistry. Our state-of-the-art
-                                facility offers comprehensive care from routine cleanings to complete smile makeovers.
+                            Experience the perfect blend of comfort and advanced dentistry. Our state-of-the-art facility offers comprehensive care from routine cleanings to complete smile makeovers. Located in the heart of Kigali, Rwanda, we are proud to provide exceptional dental care that transforms lives. Our specialized services in dental prosthetics and orthodontics address critical gaps in local healthcare, making world-class oral health accessible to our community.
                             </p>
                         </div>
 
@@ -72,11 +71,11 @@ const HeroSection = () => {
                         <div className="flex flex-col sm:flex-row gap-4">
                             <button
                             onClick={handleCancel}  
-                            className="bg-teal-600   justify-between hover:bg-teal-700 text-white px-8 py-6 rounded-lg text-lg flex items-center gap-2">
+                            className="bg-teal-600   justify-between hover:bg-teal-700 text-white px-8 py-3 rounded-lg text-lg flex items-center gap-2">
                                 Book Appointmet
                                 <BiCalendar className="w-5 h-5" />
                             </button>
-                            <Link className="border-2 justify-between border-teal-600 text-teal-600 hover:bg-teal-50 px-8 py-6 rounded-lg text-lg flex items-center gap-2" href={'/#contact'}>
+                            <Link className="border-2 justify-between border-teal-600 text-teal-600 hover:bg-teal-50 px-8 py-3 rounded-lg text-lg flex items-center gap-2" href={'/#contact'}>
                                 Contact Us
                                 <PiPhone className="w-5 h-5" />
                             </Link>

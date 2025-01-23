@@ -47,8 +47,7 @@ const ServiceSection = () => {
             Our Specialty
           </Title>
           <Paragraph className="text-xl text-gray-600">
-            We provide world-class services with the best medical team!
-          </Paragraph>
+          We offer a comprehensive range of services in general dentistry, dental prosthetics, orthodontics, cosmetic, and paediatric dentistry, all designed to meet your unique oral health needs:           </Paragraph>
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-3 p-0 lg:grid-cols-4 md:gap-8 gap-2">
