@@ -6,7 +6,7 @@ const AboutSection = () => {
     <><div id="about" className="relative max-w-7xl lg:flex-row flex flex-col gap-5 my-auto mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-16 sm:pt-20 sm:pb-20">
       <div className="md:w-1/2 w-full  my-auto flex flex-col space-y-4">
         <h1 className="md:text-3xl text-2xl font-semibold absolute md:top-12 -top-5">About Us</h1>
-        <Image src="/images/service.jpg" alt="About Us" width={500} height={500} className="rounded-md w-full object-fill" />
+        <Image src="/abouts.jpg" alt="About Us" width={500} height={500} className="rounded-md w-full object-fill" />
         <div className="bg-teal-500 rounded-md my-auto mt-auto justify-center flex">
 
 

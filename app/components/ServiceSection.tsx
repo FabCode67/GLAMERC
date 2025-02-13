@@ -107,17 +107,17 @@ const services = [
   {
     title: "Extractions",
     description: "Simple extractions, Surgical extractions, Wisdom teeth extractions",
-    icon: "/im4.png"
+    icon: "/toothextraction.jpg"
   },
   {
     title: "Dentures & Implants",
     description: "Removable and fixed dentures plus dental implant solutions",
-    icon: "/im5.png"
+    icon: "/removable.jpg"
   },
   {
     title: "Scaling & Root Planning",
     description: "Gum treatment for gum disease",
-    icon: "/im6.png",
+    icon: "/scalling.jpg",
     highlighted: false
   },
   {
@@ -128,7 +128,7 @@ const services = [
   {
     title: "Teeth Whitening",
     description: "In-office teeth whitening, Home teeth whitening",
-    icon: "/im8.png"
+    icon: "/toothwhite.jpg"
   },
   {
     title: "Retainers & Night Guards",

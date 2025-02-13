@@ -76,10 +76,13 @@ const NewAppointment: React.FC<NewAppointmentProps> = ({ isModalVisible, selecte
     useEffect(() => {
         // if (selectedClinician?.id) {
         const fetchClinicians = async () => {
+            try {
             const clinicians = await getAllCliniciansFromParticularClinic();
-            const activeClinicians = clinicians.filter((clinician: Clinician) => clinician?.active);
+            const activeClinicians = clinicians?.filter((clinician: Clinician) => clinician?.active);
             setClinicians(activeClinicians);
-            console.log("all c", clinicians);
+            } catch (error) {
+            console.error(error);
+            }
 
         };
         fetchClinicians();
@@ -88,7 +91,7 @@ const NewAppointment: React.FC<NewAppointmentProps> = ({ isModalVisible, selecte
         , []);
     useEffect(() => {
         const getAllCliniciansInfo = () => {
-            const allClinicians = clinicians.map((clinician: Clinician) => {
+            const allClinicians = clinicians?.map((clinician: Clinician) => {
                 return { id: clinician.id, title: clinician.first_name + " " + clinician.last_name, role: clinician?.role };
             });
 
