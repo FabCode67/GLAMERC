@@ -112,7 +112,7 @@ const services = [
   {
     title: "Dentures & Implants",
     description: "Removable and fixed dentures plus dental implant solutions",
-    icon: "/removable.jpg"
+    icon: "/services/fixed.jpg"
   },
   {
     title: "Scaling & Root Planning",

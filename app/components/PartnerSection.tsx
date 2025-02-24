@@ -1,21 +1,16 @@
-import React, { useState } from 'react';
-import { GrNext, GrPrevious } from 'react-icons/gr';
+import React from 'react';
+import { HeartPulse } from "lucide-react";
 
-const PartenersSection = () => {
-    // Define the number of logos per page
-    const logosPerPage = 8;
-    const [currentPage, setCurrentPage] = useState(1);
-
-    // Array of logos
-    const logos = [
+const PartnersSection = () => {
+    const insuranceLogos = [
         'rssb.avif',
-        'sanlam.jpg',
-        'britam.png',
         'mmi.png',
         'radiant.png',
         'old.png',
-        'prime.png',
         'eden.png',
+        'sanlam.jpg',
+        'britam.png',
+        'prime.png',
         'oxfam.png',
         'urwego.png',
         'rwandabar.png',
@@ -25,67 +20,51 @@ const PartenersSection = () => {
         'silver.jpg',
         'prive.jpg',
     ];
-    const totalPages = Math.ceil(logos.length / logosPerPage);
-    const handlePageChange = (newPage:number) => {
-        setCurrentPage(newPage);
-    };
-
-    const startIndex = (currentPage - 1) * logosPerPage;
-    const currentLogos = logos.slice(startIndex, startIndex + logosPerPage);
 
     return (
-        <section
-            id="partners"
-            className="relative max-w-7xl flex flex-col gap-5 my-auto mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-16 sm:pt-20 sm:pb-20"        >
-            <div className="w-full mx-auto text-center space-y-8 my-auto">
-                <h2 className="text-3xl md:text-4xl font-bold">PARTNERS</h2>
-                <p className="text-lg md:text-3xl">
-                    We work with the best companies in the country to provide you with the best care.
-                </p>
-                <p className="max-w-2xl mx-auto text-lg mb-20">
-                    At our dental clinic, we strive to make quality dental care accessible to all our patients. We are
-                    proud to partner with a variety of insurance providers to offer comprehensive coverage options. Our
-                    list of accepted insurances ensures that you can receive the treatment you need without financial
-                    stress. Your oral health is our priority, and we are here to help you every step of the way!
-                </p>
-                <div className="w-full overflow-hidden mt-28">
-                    <div className="w-full grid lg:grid-cols-8 md:grid-cols-4 grid-cols-2 gap-4 mx-auto shadow flex-wrap">
-                        {currentLogos.map((logo, index) => (
-                            <img
-                                key={index}
-                                src={`/${logo}`}
-                                alt={`Partner Logo ${index + 1}`}
-                                className="h-20 p-2 w-40 shadow"
-                            />
-                        ))}
-                    </div>
-                    <div className="flex justify-center items-end mt-12 space-x-4">
-                        <button
-                            onClick={() => handlePageChange(currentPage - 1)}
-                            disabled={currentPage === 1}
-                            className={`px-4 py-2 bg-gray-200 rounded ${currentPage === 1 && 'opacity-50 cursor-not-allowed'}`}
-                        >
-                            <GrPrevious />
-                        </button>
+        <section id='partners' className="bg-teal-50 py-16 md:py-24">
+            <div className="container mx-auto px-4 md:px-8 max-w-7xl">
+                <div className="text-center mb-12">
+                    <HeartPulse className="mx-auto w-16 h-16 text-teal-800 mb-4" />
+                    <h2 className="text-4xl font-bold text-teal-900 mb-4">
+                        Our Partners
+                    </h2>
+                    <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+                        We work with a wide network of insurance providers to maximize your covarage.
+                    </p>
+                </div>
 
-                        {Array.from({ length: totalPages }, (_, i) => (
-                            <button
-                                key={i}
-                                onClick={() => handlePageChange(i + 1)}
-                                className={`h-7 w-7 bg-gray-200 rounded-full ${
-                                    currentPage === i + 1 && 'bg-medBlue text-white border border-teal-600'
-                                }`}
-                            >
-                                
-                            </button>
-                        ))}
-                        <button
-                            onClick={() => handlePageChange(currentPage + 1)}
-                            disabled={currentPage === totalPages}
-                            className={`px-4 py-2 bg-gray-200 rounded ${currentPage === totalPages && 'opacity-50 cursor-not-allowed'}`}
-                        >
-                            <GrNext />
-                        </button>
+                <div className="grid md:grid-cols-1 gap-12">
+                    <div className="bg-white p-8 rounded-2xl shadow-lg">
+                        <h3 className="text-2xl font-bold text-teal-900 mb-8 text-center">
+                            Accepted Insurance Providers
+                        </h3>
+                        <div className="grid md:grid-cols-4 grid-cols-3 gap-3">
+                            {insuranceLogos.map((logo, index) => (
+                                <div
+                                    key={index}
+                                    className="flex items-center justify-center p-4 bg-teal-50 rounded-xl hover:bg-teal-100 transition-colors"
+                                >
+                                    <img
+                                        src={logo}
+                                        alt={`Insurance Provider ${index + 1}`}
+                                        className="max-h-16 max-w-full transition-all"
+                                    />
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+                <div className="text-center mt-12">
+                    <p className="text-lg text-gray-700 max-w-2xl mx-auto">
+                        Not sure about your coverage? Our financial counselors are ready to help you understand
+                        your insurance benefits and explore payment options.
+                    </p>
+                    <div className="mt-8">
+                        <a href='#contact'
+                            className=" px-8 py-3 bg-teal-800 text-white rounded-full hover:bg-teal-900 transition-colors">
+                            Contact Us
+                        </a>
                     </div>
                 </div>
             </div>
@@ -93,4 +72,4 @@ const PartenersSection = () => {
     );
 };
 
-export default PartenersSection;
+export default PartnersSection;

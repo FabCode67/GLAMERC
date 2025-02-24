@@ -226,7 +226,7 @@ const NewAppointment: React.FC<NewAppointmentProps> = ({ isModalVisible, selecte
     return (
         <>
             <Modal
-                title={`Book Appointment with ${selectedClinician ? selectedClinician?.first_name + ' ' + selectedClinician?.last_name : 'Glameric-Dental clinic'}`}
+                title={`Book Appointment with ${selectedClinician ? selectedClinician?.first_name + ' ' + selectedClinician?.last_name : 'Glamerc-Dental clinic'}`}
                 visible={isModalVisible}
                 onCancel={handleCancel}
                 footer={null}

@@ -5,8 +5,8 @@ import { MailOutlined, PhoneOutlined, EnvironmentOutlined, ClockCircleOutlined }
 
 const LocationSection = () => {
   return (
-    <section id='contact' className="min-h-screen py-10">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full my-auto  self-center mt-auto flex items-center justify-center min-h-screen">
+    <section id='contact' className="min-h-fit py-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full my-auto  self-center mt-auto flex items-center justify-center min-h-fit">
         <div className="w-full flex flex-col-reverse lg:flex-row gap-8 items-center justify-between">
           <div className="lg:w-1/2 w-full relative aspect-[4/3] rounded-[40px_10px_40px_10px] overflow-hidden shadow-2xl">
             <Image

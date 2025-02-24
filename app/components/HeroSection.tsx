@@ -48,7 +48,7 @@ const HeroSection = () => {
                             </div>
                             <h1 className="text-3xl sm:text-4xl lg:text-4xl font-bold text-gray-900">
                                 Transform Your Smile at{' '}
-                                <span className="text-teal-600 lg:text-5xl">Glameric Dental Clinic</span>
+                                <span className="text-teal-600 lg:text-5xl">GLAMERC Dental Clinic</span>
                             </h1>
                             <p className="text-xl text-gray-600 max-w-2xl">
                             Experience the perfect blend of comfort and advanced dentistry. Our state-of-the-art facility offers comprehensive care from routine cleanings to complete smile makeovers. Located in the heart of Kigali, Rwanda, we are proud to provide exceptional dental care that transforms lives. Our specialized services in dental prosthetics and orthodontics address critical gaps in local healthcare, making world-class oral health accessible to our community.
@@ -108,7 +108,7 @@ const HeroSection = () => {
                     <div className="space-y-4">
                         <div className="relative h-[400px] rounded-2xl overflow-hidden shadow-2xl">
                             <img
-                                src="/images/dent1.jpg"
+                                src="/images/house.jpg"
                                 alt="Modern dental clinic interior"
 
                                 height={100}
@@ -120,7 +120,7 @@ const HeroSection = () => {
                         <div className="grid grid-cols-2 gap-4">
                             <div className="relative h-[200px] rounded-xl overflow-hidden shadow-lg">
                                 <img
-                                    src="/images/recept.jpg"
+                                    src="/images/dent1.jpg"
                                     alt="Dental treatment"
 
                                     height={100}

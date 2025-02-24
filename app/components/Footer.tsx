@@ -18,7 +18,7 @@ const Footer = () => {
             <li><Link href="#about"><p className="hover:text-teal-400 text-gray-400">About Us</p></Link></li>
             <li><Link href="#services"><p className="hover:text-teal-400 text-gray-400">Services</p></Link></li>
             <li><Link href="#team"><p className="hover:text-teal-400 text-gray-400">Team</p></Link></li>
-            <li><Link href="#parteners"><p className="hover:text-teal-400 text-gray-400">Parteners</p></Link></li>
+            <li><Link href="#partners"><p className="hover:text-teal-400 text-gray-400">Partners</p></Link></li>
           </ul>
         </div>
         <div className='text-gray-400 md:block hidden'>
@@ -39,7 +39,7 @@ const Footer = () => {
             <li><Link href="#about"><p className="hover:text-teal-400 text-gray-400">About Us</p></Link></li>
             <li><Link href="#services"><p className="hover:text-teal-400 text-gray-400">Services</p></Link></li>
             <li><Link href="#team"><p className="hover:text-teal-400 text-gray-400">Team</p></Link></li>
-            <li><Link href="#parteners"><p className="hover:text-teal-400 text-gray-400">Parteners</p></Link></li>
+            <li><Link href="#partners"><p className="hover:text-teal-400 text-gray-400">Partners</p></Link></li>
           </ul>
         </div>
         <div className='text-gray-400 w-1/2'>
