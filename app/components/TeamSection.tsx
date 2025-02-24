@@ -62,33 +62,26 @@ const TeamPage = () => {
         setCurrentPage(newPage);
     };
 
-    // useEffect(() => {
-    //     sectionRef.current?.scrollIntoView({ behavior: 'smooth' });
-    // }, [currentPage]);
-
     const doeMember = teamData?.find(member => member.last_name === "OMWETOWAZE");
-const otherMembers = teamData?.filter(member => member.role === "dentist" && member.first_name !== 'Dr Gilbert Cham ' && member.last_name !== "OMWETOWAZE")
-    .filter(member => member.active)
-    .reverse();
+    const otherMembers = teamData?.filter(member => member.role === "dentist" && member.first_name !== 'Dr Gilbert Cham ' && member.last_name !== "OMWETOWAZE")
+        .filter(member => member.active)
+        .reverse();
 
-let paginatedDoctors = otherMembers.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
+    let paginatedDoctors = otherMembers.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
 
-if (doeMember) {
-    paginatedDoctors = paginatedDoctors.filter(member => member.last_name !== "OMWETOWAZE");
-    paginatedDoctors.push(doeMember);
-}
-//display only last doe member
-
+    if (doeMember) {
+        paginatedDoctors = paginatedDoctors.filter(member => member.last_name !== "OMWETOWAZE");
+        paginatedDoctors.push(doeMember);
+    }
 
 
-    const totalPages = Math.ceil(paginatedDoctors.filter(member => member.active).length / itemsPerPage);    
+    const totalPages = Math.ceil(paginatedDoctors.filter(member => member.active).length / itemsPerPage);
     return (
         <section id="team" className="bg-gray-100 py-4">
             <div className="container mx-auto px-4 md:px-8 md:max-w-7xl w-full">
                 <h2 className="text-center text-4xl font-bold text-teal-600 mb-8">Meet Our Team</h2>
                 <div className='w-full flex flex-col'>
                     <div className="flex md:flex-row flex-col w-full md:space-x-4 space-x-0">
-                        {/* Static Team Member */}
                         <motion.div
                             whileHover={{ scale: 1.01 }}
                             className="p-6 shadow rounded-xl flex flex-col items-center md:w-[30%] w-full md:h-[33rem] h-fit space-y-4"
@@ -98,7 +91,7 @@ if (doeMember) {
                                 <h3 className="text-lg font-medium text-gray-800">Godfrey Gafirita</h3>
                             </div>
                             <div className="text-center">
-                                <h3 className="text-xl font-semibold mt-0 text-gray-800">Managing Director</h3>
+                                <h3 className="text-xl font-semibold mt-0 text-gray-800">Head of Dental Clinic</h3>
                             </div>
                             <div className="flex space-x-4 text-teal-600 mt-4">
                                 <a target="_blank" rel="noopener noreferrer" href="in/gafirita-godfrey">
@@ -115,7 +108,6 @@ if (doeMember) {
                                 </a>
                             </div>
                         </motion.div>
-                        {/* Doctors List with Pagination */}
                         <div className="doctorsDiv grid lg:grid-cols-4 md:grid-cols-3 grid-cols-2 gap-3 md:w-[70%] md:mt-0 mt-5 w-full">
                             {paginatedDoctors.length > 0 ? (
                                 paginatedDoctors?.map((member, index) => (
