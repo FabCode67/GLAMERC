@@ -13,7 +13,7 @@ const Navbar = () => {
           </span>
         </div>
         <div>
-          <a href="https://wa.me/250784012286" className="flex items-center md:space-x-2 space-x-1">
+          <a href="https://wa.me/250780553772" className="flex items-center md:space-x-2 space-x-1">
             <WhatsAppOutlined /> <span className='hidden md:flex'>Connect on WhatsApp</span>
           </a>
         </div>
