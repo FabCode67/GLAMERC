@@ -2,7 +2,6 @@
 
 import Link from 'next/link';
 import { BiCalendar } from 'react-icons/bi';
-import { BsShieldFill } from 'react-icons/bs';
 import { CgLock } from 'react-icons/cg';
 import { PiPhone } from 'react-icons/pi';
 import { SiTarget } from 'react-icons/si';
@@ -12,22 +11,22 @@ import { useState } from 'react';
 import { Clinician } from './Appointment';
 const HeroSection = () => {
     const [isModalVisible, setIsModalVisible] = useState(false);
-    const [selectedClinician, ] = useState<Clinician>(null as unknown as Clinician);
-    const handleCancel =()=>{
+    const [selectedClinician,] = useState<Clinician>(null as unknown as Clinician);
+    const handleCancel = () => {
         setIsModalVisible(!isModalVisible)
     }
     return (
         <div className="relative min-h-screen bg-white">
             {/* Background Pattern */}
-            <div className="absolute inset-0 bg-gradient-to-br from-teal-50 to-white z-0" />
-            <NewAppointment 
-                    isModalVisible={isModalVisible}
-                    selectedClinician={selectedClinician}
-                    handleCancel={handleCancel}
+            <div className="absolute inset-0 bg-gradient-to-br from-blue-50 to-white z-0" />
+            <NewAppointment
+                isModalVisible={isModalVisible}
+                selectedClinician={selectedClinician}
+                handleCancel={handleCancel}
             />
 
             {/* Top Banner */}
-            <div className="bg-teal-600 text-white py-2">
+            <div className="bg-blue-600 text-white py-2">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <p className="text-center text-sm sm:text-base">
                         New Patient Special: Free Consultation & X-Ray | Call Now: (555) 123-4567
@@ -42,40 +41,26 @@ const HeroSection = () => {
                     {/* Left Column - Text Content */}
                     <div className="space-y-8">
                         <div className="space-y-4">
-                            <div className="flex items-center gap-2 text-teal-600">
+                            <div className="flex items-center gap-2 text-blue-600">
                                 <SiTarget className="w-5 h-5 fill-current" />
                                 <span className="font-semibold">Top-Rated Dental Clinic in the City</span>
                             </div>
                             <h1 className="text-3xl sm:text-4xl lg:text-4xl font-bold text-gray-900">
                                 Transform Your Smile at{' '}
-                                <span className="text-teal-600 lg:text-5xl">GLAMERC Dental Clinic</span>
+                                <span className="text-blue-600 lg:text-5xl">GLAMERC DENTAL CLINIC</span>
                             </h1>
                             <p className="text-xl text-gray-600 max-w-2xl">
-                            Experience the perfect blend of comfort and advanced dentistry. Our state-of-the-art facility offers comprehensive care from routine cleanings to complete smile makeovers. Located in the heart of Kigali, Rwanda, we are proud to provide exceptional dental care that transforms lives. Our specialized services in dental prosthetics and orthodontics address critical gaps in local healthcare, making world-class oral health accessible to our community.
+                                Experience the perfect blend of comfort and advanced dentistry. Our state-of-the-art facility offers comprehensive care from routine cleanings to complete smile makeovers. Located in the heart of Kigali, Rwanda, we are proud to provide exceptional dental care that transforms lives. Our specialized services in dental prosthetics and orthodontics address critical gaps in local healthcare, making world-class oral health accessible to our community.
                             </p>
                         </div>
-
-                        {/* Trust Indicators */}
-                        <div className="flex gap-4 flex-wrap">
-                            {/* <div className="flex items-center gap-2">
-                                <SiTarget className="w-5 h-5 text-yellow-400" />
-                                <span className="font-semibold">4.9/5 (500+ Reviews)</span>
-                            </div> */}
-                            <div className="flex items-center gap-2">
-                                <BsShieldFill className="w-5 h-5 text-teal-600" />
-                                <span className="font-semibold">Certified Specialists</span>
-                            </div>
-                        </div>
-
-                        {/* CTA Buttons */}
                         <div className="flex flex-col sm:flex-row gap-4">
                             <button
-                            onClick={handleCancel}  
-                            className="bg-teal-600   justify-between hover:bg-teal-700 text-white px-8 py-3 rounded-lg text-lg flex items-center gap-2">
+                                onClick={handleCancel}
+                                className="bg-blue-600   justify-between hover:bg-blue-700 text-white px-8 py-3 rounded-lg text-lg flex items-center gap-2">
                                 Book Appointmet
                                 <BiCalendar className="w-5 h-5" />
                             </button>
-                            <Link className="border-2 justify-between border-teal-600 text-teal-600 hover:bg-teal-50 px-8 py-3 rounded-lg text-lg flex items-center gap-2" href={'/#contact'}>
+                            <Link className="border-2 justify-between border-blue-600 text-blue-600 hover:bg-blue-50 px-8 py-3 rounded-lg text-lg flex items-center gap-2" href={'/#contact'}>
                                 Contact Us
                                 <PiPhone className="w-5 h-5" />
                             </Link>
@@ -84,23 +69,14 @@ const HeroSection = () => {
                         {/* Key Features */}
                         <div className="grid sm:grid-cols-2 gap-6 pt-8">
                             <div className="flex items-start gap-4">
-                                <div className="bg-teal-100 p-3 rounded-lg">
-                                    <CgLock className="w-6 h-6 text-teal-600" />
+                                <div className="bg-blue-100 p-3 rounded-lg">
+                                    <CgLock className="w-6 h-6 text-blue-600" />
                                 </div>
                                 <div>
                                     <h3 className="font-semibold text-gray-900">Flexible Hours</h3>
-                                    <p className="text-gray-600">Mon-Sun: 8AM-8PM<br />Public Holydays: 8AM-8PM</p>
+                                    <p className="text-gray-600">Mon-Sun: 8AM-8PM<br />Public Holidays: 8AM-8PM</p>
                                 </div>
                             </div>
-                            {/* <div className="flex items-start gap-4">
-                                <div className="bg-teal-100 p-3 rounded-lg">
-                                    <BiArrowBack className="w-6 h-6 text-teal-600" />
-                                </div>
-                                <div>
-                                    <h3 className="font-semibold text-gray-900">Emergency Care</h3>
-                                    <p className="text-gray-600">24/7 emergency dental<br />services available</p>
-                                </div>
-                            </div> */}
                         </div>
                     </div>
 
@@ -122,7 +98,6 @@ const HeroSection = () => {
                                 <img
                                     src="/images/dent1.jpg"
                                     alt="Dental treatment"
-
                                     height={100}
                                     width={100}
                                     className="object-cover h-full w-full"
@@ -141,28 +116,6 @@ const HeroSection = () => {
                         </div>
                     </div>
                 </div>
-
-                {/* Bottom Trust Bar */}
-                {/* <div className="mt-16 pt-8 border-t border-gray-200">
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-                        <div className="text-center">
-                            <div className="text-3xl font-bold text-teal-600">15+</div>
-                            <div className="text-gray-600">Years Experience</div>
-                        </div>
-                        <div className="text-center">
-                            <div className="text-3xl font-bold text-teal-600">10k+</div>
-                            <div className="text-gray-600">Happy Patients</div>
-                        </div>
-                        <div className="text-center">
-                            <div className="text-3xl font-bold text-teal-600">15+</div>
-                            <div className="text-gray-600">Expert Staff</div>
-                        </div>
-                        <div className="text-center">
-                            <div className="text-3xl font-bold text-teal-600">100%</div>
-                            <div className="text-gray-600">Satisfaction Rate</div>
-                        </div>
-                    </div>
-                </div> */}
             </div>
         </div>
     );

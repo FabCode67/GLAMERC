@@ -15,7 +15,7 @@ const ServiceCard = ({ service }: { service: Service }) => (
     hoverable
     bodyStyle={{padding: "3px"}}
     className={`h-full p-0 ${
-      service.highlighted ? 'bg-teal-500 text-white' : 'bg-white'
+      service.highlighted ? 'bg-blue-500 text-white' : 'bg-white'
     }`}
     cover={
       <div className="p-4">
@@ -85,8 +85,8 @@ const ServiceSection = () => {
 
 const services = [
   {
-    title: "Orthodontic Treatments",
-    description: "Professional braces and clear aligners for perfect smile alignment",
+    title: "Orthodontic braces straighten teeth using a combination of brackets and wires affixed to your teeth.",
+    description: "Clear aligners are sets of clear, thin, plastic-like trays that are custom-formed to fit your mouth and sequentially apply the pressure required to move the teeth.",
     icon: "/services/clear_align.jpg"
   },
   {

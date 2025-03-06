@@ -35,37 +35,37 @@ const MainNav = () => {
   return (
     <div
       ref={navRef}
-      className={`transition-all duration-300 ${isFixed ? 'fixed top-0 w-full z-50 bg-white shadow-md' : 'bg-teal-600'
+      className={`transition-all duration-300 ${isFixed ? 'fixed top-0 w-full z-50 bg-white shadow-md' : 'bg-blue-600'
         }`}
     >
-      <div className={`container flex justify-between  mx-auto px-4 sm:px-6 lg:px-8  items-center py-4 max-w-7xl ${isFixed ? 'bg-white' : 'bg-teal-600'}`}>
+      <div className={`container flex justify-between  mx-auto px-4 sm:px-6 lg:px-8  items-center py-4 max-w-7xl ${isFixed ? 'bg-white' : 'bg-blue-600'}`}>
         <div className="flex items-center">
           <img src="/dentallogo.png" alt="Medico Logo" className="h-10 w-16 mr-2" />
           <span className={`text-xl font-semibold ${isFixed ? 'text-black' : 'text-white'}`}>Glamerc</span>
         </div>
         <div className="hidden lg:flex space-x-6">
           <Link href="#">
-            <p className={`${isFixed ? 'text-gray-700 hover:text-teal-600' : 'text-white hover:text-slate-300'}`}>Home</p>
+            <p className={`${isFixed ? 'text-gray-700 hover:text-blue-600' : 'text-white hover:text-slate-300'}`}>Home</p>
           </Link>
           <Link href="#about">
-            <p className={`${isFixed ? 'text-gray-700 hover:text-teal-600' : 'text-white hover:text-slate-300'}`}>About</p>
+            <p className={`${isFixed ? 'text-gray-700 hover:text-blue-600' : 'text-white hover:text-slate-300'}`}>About</p>
           </Link>
           <Link href="#services">
-            <p className={`${isFixed ? 'text-gray-700 hover:text-teal-600' : 'text-white hover:text-slate-300'}`}>Services</p>
+            <p className={`${isFixed ? 'text-gray-700 hover:text-blue-600' : 'text-white hover:text-slate-300'}`}>Services</p>
           </Link>
           <Link href="#team">
-            <p className={`${isFixed ? 'text-gray-700 hover:text-teal-600' : 'text-white hover:text-slate-300'}`}>Team</p>
+            <p className={`${isFixed ? 'text-gray-700 hover:text-blue-600' : 'text-white hover:text-slate-300'}`}>Team</p>
           </Link>
           <Link href="#partners">
-            <p className={`${isFixed ? 'text-gray-700 hover:text-teal-600' : 'text-white hover:text-slate-300'}`}>Partners</p>
+            <p className={`${isFixed ? 'text-gray-700 hover:text-blue-600' : 'text-white hover:text-slate-300'}`}>Partners</p>
           </Link>
           <Link href="#contact">
-            <p className={`${isFixed ? 'text-gray-700 hover:text-teal-600' : 'text-white hover:text-slate-300'}`}>Contact</p>
+            <p className={`${isFixed ? 'text-gray-700 hover:text-blue-600' : 'text-white hover:text-slate-300'}`}>Contact</p>
           </Link>
         </div>
         <div className="hidden lg:flex items-center space-x-4">
           <span className={` ${isFixed ? 'text-black' : 'text-white'} flex`}><BiPhone className={`flex my-auto justify-center ${isFixed ? 'text-black' : 'text-white'}`} /> +250 784 012 286</span>
-          <Button onClick={handleLogin} type="primary" className="bg-teal-600 hover:bg-teal-700">
+          <Button onClick={handleLogin} type="primary" className="bg-blue-600 hover:bg-blue-700">
             Login
           </Button>
         </div>
@@ -75,37 +75,37 @@ const MainNav = () => {
             aria-label="Toggle Mobile Menu"
           >
             {isMobileMenuOpen ? (
-              <AiOutlineClose className="text-3xl text-teal-600" />
+              <AiOutlineClose className="text-3xl text-blue-600" />
             ) : (
-              <AiOutlineMenu className="text-3xl text-teal-600" />
+              <AiOutlineMenu className="text-3xl text-blue-600" />
             )}
           </button>
         </div>
       </div>
       {isMobileMenuOpen && (
-        <div className={`lg:hidden transition-all duration-300 w-full shadow-lg ${isFixed ? 'bg-white' : 'bg-teal-600'
+        <div className={`lg:hidden transition-all duration-300 w-full shadow-lg ${isFixed ? 'bg-white' : 'bg-blue-600'
           } `}>
           <div className="flex flex-col space-y-4 py-4 px-6">
             <Link href="#">
-              <p className={`${isFixed ? 'text-gray-700 hover:text-teal-600' : 'text-white hover:text-slate-300'}`}>Home</p>
+              <p className={`${isFixed ? 'text-gray-700 hover:text-blue-600' : 'text-white hover:text-slate-300'}`}>Home</p>
             </Link>
             <Link href="#about">
-              <p className={`${isFixed ? 'text-gray-700 hover:text-teal-600' : 'text-white hover:text-slate-300'}`}>About</p>
+              <p className={`${isFixed ? 'text-gray-700 hover:text-blue-600' : 'text-white hover:text-slate-300'}`}>About</p>
             </Link>
             <Link href="#services">
-              <p className={`${isFixed ? 'text-gray-700 hover:text-teal-600' : 'text-white hover:text-slate-300'}`}>Services</p>
+              <p className={`${isFixed ? 'text-gray-700 hover:text-blue-600' : 'text-white hover:text-slate-300'}`}>Services</p>
             </Link>
             <Link href="#team">
-              <p className={`${isFixed ? 'text-gray-700 hover:text-teal-600' : 'text-white hover:text-slate-300'}`}>Team</p>
+              <p className={`${isFixed ? 'text-gray-700 hover:text-blue-600' : 'text-white hover:text-slate-300'}`}>Team</p>
             </Link>
             <Link href="#partners">
-              <p className={`${isFixed ? 'text-gray-700 hover:text-teal-600' : 'text-white hover:text-slate-300'}`}>Partners</p>
+              <p className={`${isFixed ? 'text-gray-700 hover:text-blue-600' : 'text-white hover:text-slate-300'}`}>Partners</p>
             </Link>
             <Link href="#contact">
-              <p className={`${isFixed ? 'text-gray-700 hover:text-teal-600' : 'text-white hover:text-slate-300'}`}>Contact</p>
+              <p className={`${isFixed ? 'text-gray-700 hover:text-blue-600' : 'text-white hover:text-slate-300'}`}>Contact</p>
             </Link>
             <span className={`${isFixed ? 'text-black' : 'text-white'} flex`}><BiPhone className='flex my-auto justify-center' /> +250 784 012 286</span>
-            <Button onClick={handleLogin} type="primary" className="bg-teal-600 hover:bg-teal-700">
+            <Button onClick={handleLogin} type="primary" className="bg-blue-600 hover:bg-blue-700">
               Login
             </Button>
           </div>

@@ -79,7 +79,7 @@ const TeamPage = () => {
     return (
         <section id="team" className="bg-gray-100 py-4">
             <div className="container mx-auto px-4 md:px-8 md:max-w-7xl w-full">
-                <h2 className="text-center text-4xl font-bold text-teal-600 mb-8">Meet Our Team</h2>
+                <h2 className="text-center text-4xl font-bold text-blue-600 mb-8">Meet Our Team</h2>
                 <div className='w-full flex flex-col'>
                     <div className="flex md:flex-row flex-col w-full md:space-x-4 space-x-0">
                         <motion.div
@@ -93,7 +93,7 @@ const TeamPage = () => {
                             <div className="text-center">
                                 <h3 className="text-xl font-semibold mt-0 text-gray-800">Head of Dental Clinic</h3>
                             </div>
-                            <div className="flex space-x-4 text-teal-600 mt-4">
+                            <div className="flex space-x-4 text-blue-600 mt-4">
                                 <a target="_blank" rel="noopener noreferrer" href="in/gafirita-godfrey">
                                     <LiaLinkedin size={20} />
                                 </a>
@@ -129,21 +129,21 @@ const TeamPage = () => {
                                                     />
                                                     <div className="text-center">
                                                         <h3 className="md:text-sm text-sm font-semibold text-gray-800">{member.first_name} {' '} {member.last_name}</h3>
-                                                        <p className="text-teal-600">
+                                                        <p className="text-blue-600">
                                                             {member?.first_name === "Godfrey" && member?.last_name === "Gafirita" ? "Dentist" : member?.first_name === "Pacifique" && member?.last_name === "OMWETOWAZE" ? "Dentist" : member.first_name === "Vincent" && member.last_name === "MUGAMBIRA" ? "Dentist" : member.last_name === "MUZIMBA" ? " Dental surgeon" : member.last_name === "UWIMANA" ? "Dental surgeon" : member.last_name === "NZABONIMANA" ? "Dentist" : member.first_name === "Valentine" && member.last_name === "KAMPUNGA" ? "Chief accountant" : member.last_name === "KABASINGA" ? "Verification officer" : member.last_name === "KAMATENESI" ? "Receptionist & Cashier" : member.last_name === "MUTAMBARUNGU" ? "Receptionist & Cashier" : member.first_name === "Emmanuel" && member.last_name === "Turikumwe" ? "Dental Assistant" : member.first_name === "Kevine" && member.last_name === "UMUHOZA" ? "Dental Assistant" : member.first_name === "Dinah" && member.last_name === "TUMUKUNDE" ? "Dental Assistant" : member.first_name === "Mukamuhirwa" ? "Housekeeper" : member.first_name === "Mukanyandwi" ? "Housekeeper" : member.last_name === "Uwineza" ? "Dental Assistant" : member.role}
                                                         </p>
                                                     </div>
                                                     {((member.role !== "receptionist") && (member.role !== "nurse") && (member.role !== "finance_manager") && (member.role !== "lab_technician") && (member.role !== "store_keeper") && (member.role !== "customer_care")) ? (
                                                         <motion.button
                                                             whileHover={{ scale: 1.01 }}
-                                                            className="bg-teal-600 w-fit text-sm text-white py-1 lg:px-2 md:text-xs lg:text-sm px-1 rounded-md justify-center mx-auto text-center inline-flex items-center space-x-2"
+                                                            className="bg-blue-600 w-fit text-sm text-white py-1 lg:px-2 md:text-xs lg:text-sm px-1 rounded-md justify-center mx-auto text-center inline-flex items-center space-x-2"
                                                             onClick={() => showModal(member)}
                                                         >
                                                             <FaCalendarAlt />
                                                             <span>Book Appointment</span>
                                                         </motion.button>
                                                     ) : (
-                                                        <div className="flex space-x-4 py-1 text-teal-600">
+                                                        <div className="flex space-x-4 py-1 text-blue-600">
                                                             <a target="_blank" rel="noopener noreferrer" href={`tel:${member.phone}`}>
                                                                 <PiPhoneBold size={20} />
                                                             </a>
@@ -176,7 +176,7 @@ const TeamPage = () => {
                             <button
                                 key={index}
                                 onClick={() => handlePageChange(index + 1)}
-                                className={`px-3 py-1 rounded-md ${currentPage === index + 1 ? 'bg-teal-600 text-white' : 'bg-gray-300 text-gray-700'}`}
+                                className={`px-3 py-1 rounded-md ${currentPage === index + 1 ? 'bg-blue-600 text-white' : 'bg-gray-300 text-gray-700'}`}
                             >
                                 {index + 1}
                             </button>

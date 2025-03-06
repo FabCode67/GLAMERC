@@ -18,10 +18,10 @@ const Home = () => {
       <NavLogo />
       <MainNav />
       <HeroSection />
-      <AboutSection />
-      <ServiceSection />
-      <TeamSection />
       <PartnersSection />
+      <ServiceSection />
+      <AboutSection />
+      <TeamSection />
       <LocationSection />
       <Map />
       <Footer />

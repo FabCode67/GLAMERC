@@ -26,20 +26,20 @@ const LocationSection = () => {
               
               <div className="space-y-6 text-gray-600">
                 <p className="flex items-center justify-center space-x-2 text-lg">
-                  <EnvironmentOutlined className="text-teal-500" />
+                  <EnvironmentOutlined className="text-blue-500" />
                   <span>KG 180 St (intersection of KG 180 St and KG 107 St)</span>
                 </p>
                 <p>Remera – Gasabo</p>
                 <p>City of Kigali</p>
                 
                 <p className="flex items-center justify-center space-x-2 text-lg">
-                  <PhoneOutlined className="text-teal-500" />
+                  <PhoneOutlined className="text-blue-500" />
                   <span>Phone: 0784012286</span>
                 </p>
                 
                 <p className="flex items-center justify-center space-x-2 text-lg">
-                  <MailOutlined className="text-teal-500" />
-                  <span>Email: <a href="mailto:dentalimaging100@gmail.com" className="hover:text-teal-400 underline">dentalimaging100@gmail.com</a></span>
+                  <MailOutlined className="text-blue-500" />
+                  <span>Email: <a href="mailto:dentalimaging100@gmail.com" className="hover:text-blue-400 underline">dentalimaging100@gmail.com</a></span>
                 </p>
               </div>
 
@@ -47,11 +47,11 @@ const LocationSection = () => {
                 <h3 className="text-2xl font-semibold text-gray-800 mb-4">Working Hours</h3>
                 <div className="text-gray-600 space-y-2">
                   <p className="flex items-center justify-center space-x-2 text-lg">
-                    <ClockCircleOutlined className="text-teal-500" />
+                    <ClockCircleOutlined className="text-blue-500" />
                     <span>Monday - Sunday: 8 AM - 8 PM</span>
                   </p>
                   <p className="flex items-center justify-center space-x-2 text-lg">
-                    <ClockCircleOutlined className="text-teal-500" />
+                    <ClockCircleOutlined className="text-blue-500" />
                     <span>Public Holidays: 8 AM - 8 PM</span>
                   </p>
                 </div>

@@ -34,11 +34,11 @@ const ClinicFeatures = () => {
             We combine cutting-edge technology with compassionate care to ensure optimal outcomes for every patient.
           </p>
         </div>
-        
+
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
           {features.map((feature, index) => (
-            <div 
-              key={index} 
+            <div
+              key={index}
               className="bg-white shadow-lg rounded-xl p-4 text-center transform transition duration-300 hover:scale-105 hover:shadow-xl"
             >
               <div className="mb-4">{feature.icon}</div>
@@ -47,11 +47,11 @@ const ClinicFeatures = () => {
             </div>
           ))}
         </div>
-        
+
         <div className="text-center mt-12">
-          <a 
-            href="#contact" 
-            className="bg-teal-600 text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-teal-700 transition duration-300"
+          <a
+            href="#contact"
+            className="bg-blue-600 text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-blue-700 transition duration-300"
           >
             Visit Us Today
           </a>

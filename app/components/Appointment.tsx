@@ -377,7 +377,7 @@ const NewAppointment: React.FC<NewAppointmentProps> = ({ isModalVisible, selecte
                         </Button>,
                     ]}
                 >
-                    <h1 className='font-bold text-xl text-teal-500'>Your appointment with Glamerc Dental clinic created successfully</h1>
+                    <h1 className='font-bold text-xl text-blue-500'>Your appointment with Glamerc Dental clinic created successfully</h1>
                 </Modal>
             )}
         </>

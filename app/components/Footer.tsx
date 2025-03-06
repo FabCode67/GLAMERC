@@ -14,11 +14,11 @@ const Footer = () => {
         <div className='md:block hidden'>
           <h4 className="text-lg text-gray-400 font-semibold mb-4">Quick Links</h4>
           <ul className="space-y-2">
-            <li><Link href="#"><p className="hover:text-teal-400 text-gray-400">Home</p></Link></li>
-            <li><Link href="#about"><p className="hover:text-teal-400 text-gray-400">About Us</p></Link></li>
-            <li><Link href="#services"><p className="hover:text-teal-400 text-gray-400">Services</p></Link></li>
-            <li><Link href="#team"><p className="hover:text-teal-400 text-gray-400">Team</p></Link></li>
-            <li><Link href="#partners"><p className="hover:text-teal-400 text-gray-400">Partners</p></Link></li>
+            <li><Link href="#"><p className="hover:text-blue-400 text-gray-400">Home</p></Link></li>
+            <li><Link href="#about"><p className="hover:text-blue-400 text-gray-400">About Us</p></Link></li>
+            <li><Link href="#services"><p className="hover:text-blue-400 text-gray-400">Services</p></Link></li>
+            <li><Link href="#team"><p className="hover:text-blue-400 text-gray-400">Team</p></Link></li>
+            <li><Link href="#partners"><p className="hover:text-blue-400 text-gray-400">Partners</p></Link></li>
           </ul>
         </div>
         <div className='text-gray-400 md:block hidden'>
@@ -35,11 +35,11 @@ const Footer = () => {
         <div className='w-1/2'>
           <h4 className="text-lg text-gray-400 font-semibold mb-4">Quick Links</h4>
           <ul className="space-y-2">
-            <li><Link href="#"><p className="hover:text-teal-400 text-gray-400">Home</p></Link></li>
-            <li><Link href="#about"><p className="hover:text-teal-400 text-gray-400">About Us</p></Link></li>
-            <li><Link href="#services"><p className="hover:text-teal-400 text-gray-400">Services</p></Link></li>
-            <li><Link href="#team"><p className="hover:text-teal-400 text-gray-400">Team</p></Link></li>
-            <li><Link href="#partners"><p className="hover:text-teal-400 text-gray-400">Partners</p></Link></li>
+            <li><Link href="#"><p className="hover:text-blue-400 text-gray-400">Home</p></Link></li>
+            <li><Link href="#about"><p className="hover:text-blue-400 text-gray-400">About Us</p></Link></li>
+            <li><Link href="#services"><p className="hover:text-blue-400 text-gray-400">Services</p></Link></li>
+            <li><Link href="#team"><p className="hover:text-blue-400 text-gray-400">Team</p></Link></li>
+            <li><Link href="#partners"><p className="hover:text-blue-400 text-gray-400">Partners</p></Link></li>
           </ul>
         </div>
         <div className='text-gray-400 w-1/2'>
