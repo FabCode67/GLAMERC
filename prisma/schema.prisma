@@ -1,0 +1,93 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id           String        @id @default(uuid())
+  name         String
+  email        String        @unique
+  phone        String?
+  password     String
+  appointments Appointment[]
+  role         Role          @default(USER)
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+
+  @@map("users")
+}
+
+model Clinician {
+  id                String             @id @default(uuid())
+  name              String
+  email             String             @unique
+  phone             String?
+  specialty         Specialty?         @relation(fields: [specialtyId], references: [id])
+  specialtyId       String?
+  appointments      Appointment[]
+  guestAppointments GuestAppointment[]
+  role              Role               @default(CLINICIAN)
+  createdAt         DateTime           @default(now())
+  updatedAt         DateTime           @updatedAt
+
+  @@map("clinicians")
+}
+
+model Admin {
+  id        String   @id @default(uuid())
+  name      String
+  email     String   @unique
+  password  String
+  role      Role     @default(ADMIN)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("admins")
+}
+
+enum Role {
+  USER
+  CLINICIAN
+  ADMIN
+}
+
+model Appointment {
+  id          String    @id @default(uuid())
+  date        DateTime
+  status      String    @default("pending") // pending, confirmed, canceled, completed
+  user        User?     @relation(fields: [userId], references: [id])
+  userId      String?
+  clinician   Clinician @relation(fields: [clinicianId], references: [id])
+  clinicianId String
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+}
+
+model GuestAppointment {
+  id          String    @id @default(uuid())
+  name        String
+  email       String?
+  phone       String?
+  date        DateTime
+  status      String    @default("pending") // pending, confirmed, canceled, completed
+  clinician   Clinician @relation(fields: [clinicianId], references: [id])
+  clinicianId String
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+}
+
+model Specialty {
+  id         String      @id @default(uuid())
+  name       String      @unique
+  clinicians Clinician[]
+}
