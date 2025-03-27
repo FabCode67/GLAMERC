@@ -21,9 +21,7 @@ export async function POST(req: NextRequest) {
     if (!validation.success) {
       return NextResponse.json({ error: "Invalid input" }, { status: 400 });
     }
-
     const session = await getServerSession(authOptions);
-
     if (session) {
       const userId = session.user.id;
       const appointment = await prisma.appointment.create({
@@ -38,7 +36,6 @@ export async function POST(req: NextRequest) {
       if (!body.name || !body.email) {
         return NextResponse.json({ error: "Name and email are required for guest appointments" }, { status: 400 });
       }
-
       const guestAppointment = await prisma.guestAppointment.create({
         data: {
           date: new Date(body.date),
@@ -48,7 +45,6 @@ export async function POST(req: NextRequest) {
           phone: body.phone,
         },
       });
-
       return NextResponse.json({ message: "Guest appointment created", guestAppointment }, { status: 201 });
     }
   } catch (error) {
