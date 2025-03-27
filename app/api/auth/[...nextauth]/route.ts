@@ -24,17 +24,26 @@ export const authOptions = {
   ],
   callbacks: {
     async jwt({ token, user }: { token: any, user: any }) {
-      if (user) token.role = user.role;
+      if (user) {
+        token.id = user.id;
+        token.email = user.email;
+        token.role = user.role;
+      }
       return token;
     },
     async session({ session, token }: { session: any, token: any }) {
-      session.user.role = token.role;
+      if (token) {
+        session.user = {
+          id: token.id,
+          email: token.email,
+          role: token.role,
+        };
+      }
       return session;
     },
   },
-  secret: process.env.NEXTAUTH_SECRET,
-  session: { strategy: 'jwt' as 'jwt' },
 };
+  
 
 const handler = NextAuth(authOptions);
 export { handler as GET, handler as POST };

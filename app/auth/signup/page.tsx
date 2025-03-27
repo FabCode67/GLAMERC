@@ -30,16 +30,40 @@ const SignupPage: React.FC = () => {
   const onFinish = async (values: SignupFormValues) => {
     try {
       setLoading(true);
-      // Simulate API call with timeout
-      await new Promise((resolve) => setTimeout(resolve, 1500));
       
-      // Here you would typically register the patient with your backend
-      console.log('Signup submitted:', values);
-      
-      message.success('Registration successful! Please check your email to verify your account.');
+      // Prepare data for API
+      const signupData = {
+        firstName: values.firstName,
+        lastName: values.lastName,
+        email: values.email,
+        phone: values.phone,
+        dateOfBirth: values.dateOfBirth ? values.dateOfBirth.toISOString() : null,
+        gender: values.gender,
+        password: values.password,
+        confirmPassword: values.confirmPassword,
+        insurance: values.insurance,
+        termsAccepted: values.termsAccepted
+      };
+  
+      // Make API call
+      const response = await fetch('/api/auth/signup', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(signupData)
+      });
+  
+      const result = await response.json();
+  
+      if (!response.ok) {
+        throw new Error(result.error || 'Registration failed');
+      }
+  
+      message.success('Registration successful! Please log in.');
       router.push('/login');
     } catch (error) {
-      message.error('Registration failed. Please try again.');
+      message.error(error instanceof Error ? error.message : 'Registration failed. Please try again.');
       console.error('Signup error:', error);
     } finally {
       setLoading(false);

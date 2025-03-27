@@ -1,4 +1,5 @@
 // pages/admin/dashboard.tsx
+'use client'
 import React, { useState, useEffect } from 'react';
 import { 
   Layout, 
@@ -37,7 +38,7 @@ import {
 } from '@ant-design/icons';
 import type { ColumnsType } from 'antd/es/table';
 import Head from 'next/head';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 
 const { Header, Sider, Content } = Layout;
 const { Title, Text } = Typography;

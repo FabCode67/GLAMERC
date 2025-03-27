@@ -4,6 +4,8 @@ import { Button, Form, Input, Typography, Checkbox, Divider, message } from 'ant
 import { LockOutlined, UserOutlined, MedicineBoxOutlined } from '@ant-design/icons';
 import Head from 'next/head';
 import { useRouter } from 'next/navigation';
+import { signIn } from "next-auth/react";
+
 
 interface LoginFormValues {
   email: string;
@@ -19,21 +21,46 @@ const LoginPage: React.FC = () => {
   const onFinish = async (values: LoginFormValues) => {
     try {
       setLoading(true);
-      // Simulate API call with timeout
-      await new Promise((resolve) => setTimeout(resolve, 1500));
       
-      // Here you would typically authenticate with your backend
-      console.log('Login submitted:', values);
+      const response = await fetch("/api/auth/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: values.email,
+          password: values.password,
+        }),
+      });
+  
+      const data = await response.json();
+  
+      if (!response.ok) {
+        throw new Error(data.error || "Login failed");
+      }
+  
+      await signIn("credentials", {
+        email: values.email,
+        password: values.password,
+        callbackUrl: "/",
+      });
       
-      message.success('Login successful!');
-      router.push('/dashboard');
-    } catch (error) {
-      message.error('Login failed. Please check your credentials.');
-      console.error('Login error:', error);
+  
+      // Redirect based on user role
+      if (data.user.role === "ADMIN") {
+        router.push("/admin");
+      } else if (data.user.role === "CLINICIAN") {
+        router.push("/clinician");
+      } else {
+        router.push("/patient");
+      }
+    } catch (error: any) {
+      message.error(error.message);
     } finally {
       setLoading(false);
     }
   };
+  
 
   return (
     <>
