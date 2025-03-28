@@ -31,7 +31,7 @@ const admins: Prisma.AdminCreateInput[] = [
 async function main() {
     console.log(`Start seeding ...`)
     for (const a of admins) {
-        const admin = await prisma.admin.create({
+        const admin = await prisma.user.create({
             data: a,
         })
         console.log(`Created admin with id: ${admin.id}`)
