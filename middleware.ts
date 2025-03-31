@@ -1,8 +1,10 @@
 import { NextResponse } from "next/server";
 import * as jose from "jose";
 import { NextRequest } from "next/server";
+import { getToken } from "next-auth/jwt";
 
 export async function middleware(req: NextRequest): Promise<NextResponse> {
+  const token = await getToken({ req, secret: process.env.NEXTAUTH_SECRET });
   const authHeader = req.headers.get("Authorization");
   if (
     req.nextUrl.pathname.startsWith("/api/appointments") ||
@@ -23,18 +25,18 @@ export async function middleware(req: NextRequest): Promise<NextResponse> {
       );
     }
   }
-  if (!authHeader) {
+  if (!token) {
     return NextResponse.redirect(new URL("/auth/login", req.url));
   }
-  const token = authHeader.split(" ")[1];
-  const isValidToken = await verifyToken(token);
-  if (req.nextUrl.pathname.startsWith("/admin") && isValidToken) {
+  const tokenn = authHeader&&authHeader.split(" ")[1];
+  const isValidToken = tokenn&&await verifyToken(tokenn);
+  if (req.nextUrl.pathname.startsWith("/admin") && token.name =="ADMIN") {
     return NextResponse.redirect(new URL("/unauthorized", req.url));
   }
 
   if (
     req.nextUrl.pathname.startsWith("/doctor") &&
-    isValidToken
+    token.name =="DOCTOR"
   ) {
     return NextResponse.redirect(new URL("/unauthorized", req.url));
   }

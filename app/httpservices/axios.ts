@@ -2,7 +2,7 @@ import axios from "axios";
 import { getSession } from "next-auth/react";
 const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 export const glamercApi = axios.create({
-  baseURL: `${apiUrl}/api`,
+  baseURL: `${apiUrl}/`,
 
 });
 glamercApi.interceptors.request.use(

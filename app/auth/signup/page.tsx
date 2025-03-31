@@ -1,23 +1,31 @@
-'use client';
-import React, { useState } from 'react';
-import { Button, Form, Input, Typography, Select, Checkbox, Divider, message, DatePicker, Space } from 'antd';
-import { LockOutlined, UserOutlined, MedicineBoxOutlined, PhoneOutlined, IdcardOutlined, CalendarOutlined } from '@ant-design/icons';
-import Head from 'next/head';
-import { useRouter } from 'next/navigation';
-import Link from 'next/link';
+"use client";
+import React, { useState } from "react";
+import {
+  Button,
+  Form,
+  Input,
+  Typography,
+  Select,
+  Checkbox,
+  Divider,
+  message,
+  DatePicker,
+} from "antd";
+import {
+  LockOutlined,
+  UserOutlined,
+  MedicineBoxOutlined,
+  PhoneOutlined,
+  IdcardOutlined,
+  CalendarOutlined,
+} from "@ant-design/icons";
+import Head from "next/head";
+import { useRouter } from "next/navigation";
+import Link from "next/link";
+import { registerUser } from "@/app/httpservices/user";
+import { SignupFormValues } from "@/app/interfaces/users";
 
-interface SignupFormValues {
-  firstName: string;
-  lastName: string;
-  email: string;
-  phone: string;
-  dateOfBirth: any; // Using any for DatePicker value
-  gender: string;
-  password: string;
-  confirmPassword: string;
-  insurance: string;
-  termsAccepted: boolean;
-}
+
 
 const { Option } = Select;
 
@@ -30,41 +38,31 @@ const SignupPage: React.FC = () => {
   const onFinish = async (values: SignupFormValues) => {
     try {
       setLoading(true);
-      
-      // Prepare data for API
+
       const signupData = {
-        firstName: values.firstName,
-        lastName: values.lastName,
+        name: values.firstName +" "+ values.lastName,
         email: values.email,
         phone: values.phone,
-        dateOfBirth: values.dateOfBirth ? values.dateOfBirth.toISOString() : null,
+        dateOfBirth: values.dateOfBirth ? values.dateOfBirth.toISOString() : "",
         gender: values.gender,
         password: values.password,
-        confirmPassword: values.confirmPassword,
         insurance: values.insurance,
-        termsAccepted: values.termsAccepted
+        specialist: "",
       };
-  
-      // Make API call
-      const response = await fetch('/api/auth/signup', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(signupData)
-      });
-  
-      const result = await response.json();
-  
-      if (!response.ok) {
-        throw new Error(result.error || 'Registration failed');
+      const response = await registerUser(signupData);
+      if (response?.status == 201) {
+        message.success(response.message);
+        router.push("/auth/login");
+      } else {
+        message.error(response?.message);
       }
-  
-      message.success('Registration successful! Please log in.');
-      router.push('/login');
     } catch (error) {
-      message.error(error instanceof Error ? error.message : 'Registration failed. Please try again.');
-      console.error('Signup error:', error);
+      message.error(
+        error instanceof Error
+          ? error.message
+          : "Registration failed. Please try again."
+      );
+      console.error("Signup error:", error);
     } finally {
       setLoading(false);
     }
@@ -74,9 +72,12 @@ const SignupPage: React.FC = () => {
     <>
       <Head>
         <title>Sign Up | HealthCare Clinic</title>
-        <meta name="description" content="Create a new patient account at HealthCare Clinic" />
+        <meta
+          name="description"
+          content="Create a new patient account at HealthCare Clinic"
+        />
       </Head>
-      
+
       <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center p-4">
         <div className="w-full max-w-2xl bg-white rounded-2xl shadow-xl overflow-hidden my-8">
           <div className="bg-gradient-to-r from-cyan-500 to-blue-600 py-6 px-6 flex justify-center items-center">
@@ -84,11 +85,13 @@ const SignupPage: React.FC = () => {
               <div className="mb-2 flex justify-center">
                 <MedicineBoxOutlined className="text-white text-4xl" />
               </div>
-              <Title level={3} className="!text-white !m-0">HealthCare Clinic</Title>
+              <Title level={3} className="!text-white !m-0">
+                HealthCare Clinic
+              </Title>
               <Text className="text-blue-100">New Patient Registration</Text>
             </div>
           </div>
-          
+
           <div className="p-8">
             <Form
               form={form}
@@ -103,10 +106,12 @@ const SignupPage: React.FC = () => {
                 <Form.Item
                   name="firstName"
                   label="First Name"
-                  rules={[{ required: true, message: 'Please enter your first name' }]}
+                  rules={[
+                    { required: true, message: "Please enter your first name" },
+                  ]}
                 >
-                  <Input 
-                    prefix={<UserOutlined className="text-gray-400" />} 
+                  <Input
+                    prefix={<UserOutlined className="text-gray-400" />}
                     placeholder="First Name"
                     className="rounded-lg"
                   />
@@ -115,10 +120,12 @@ const SignupPage: React.FC = () => {
                 <Form.Item
                   name="lastName"
                   label="Last Name"
-                  rules={[{ required: true, message: 'Please enter your last name' }]}
+                  rules={[
+                    { required: true, message: "Please enter your last name" },
+                  ]}
                 >
-                  <Input 
-                    prefix={<UserOutlined className="text-gray-400" />} 
+                  <Input
+                    prefix={<UserOutlined className="text-gray-400" />}
                     placeholder="Last Name"
                     className="rounded-lg"
                   />
@@ -129,12 +136,12 @@ const SignupPage: React.FC = () => {
                 name="email"
                 label="Email Address"
                 rules={[
-                  { required: true, message: 'Please enter your email' },
-                  { type: 'email', message: 'Please enter a valid email' }
+                  { required: true, message: "Please enter your email" },
+                  { type: "email", message: "Please enter a valid email" },
                 ]}
               >
-                <Input 
-                  prefix={<UserOutlined className="text-gray-400" />} 
+                <Input
+                  prefix={<UserOutlined className="text-gray-400" />}
                   placeholder="Email address"
                   className="rounded-lg"
                 />
@@ -144,12 +151,15 @@ const SignupPage: React.FC = () => {
                 name="phone"
                 label="Phone Number"
                 rules={[
-                  { required: true, message: 'Please enter your phone number' },
-                  { pattern: /^[0-9\-\+\(\)\s]+$/, message: 'Please enter a valid phone number' }
+                  { required: true, message: "Please enter your phone number" },
+                  {
+                    pattern: /^[0-9\-\+\(\)\s]+$/,
+                    message: "Please enter a valid phone number",
+                  },
                 ]}
               >
-                <Input 
-                  prefix={<PhoneOutlined className="text-gray-400" />} 
+                <Input
+                  prefix={<PhoneOutlined className="text-gray-400" />}
                   placeholder="Phone Number"
                   className="rounded-lg"
                 />
@@ -159,9 +169,14 @@ const SignupPage: React.FC = () => {
                 <Form.Item
                   name="dateOfBirth"
                   label="Date of Birth"
-                  rules={[{ required: true, message: 'Please select your date of birth' }]}
+                  rules={[
+                    {
+                      required: true,
+                      message: "Please select your date of birth",
+                    },
+                  ]}
                 >
-                  <DatePicker 
+                  <DatePicker
                     className="w-full rounded-lg"
                     format="MM/DD/YYYY"
                     placeholder="MM/DD/YYYY"
@@ -172,7 +187,9 @@ const SignupPage: React.FC = () => {
                 <Form.Item
                   name="gender"
                   label="Gender"
-                  rules={[{ required: true, message: 'Please select your gender' }]}
+                  rules={[
+                    { required: true, message: "Please select your gender" },
+                  ]}
                 >
                   <Select placeholder="Select gender" className="rounded-lg">
                     <Option value="male">Male</Option>
@@ -184,12 +201,9 @@ const SignupPage: React.FC = () => {
                 </Form.Item>
               </div>
 
-              <Form.Item
-                name="insurance"
-                label="Insurance Provider (Optional)"
-              >
-                <Input 
-                  prefix={<IdcardOutlined className="text-gray-400" />} 
+              <Form.Item name="insurance" label="Insurance Provider (Optional)">
+                <Input
+                  prefix={<IdcardOutlined className="text-gray-400" />}
                   placeholder="Insurance Provider"
                   className="rounded-lg"
                 />
@@ -200,8 +214,11 @@ const SignupPage: React.FC = () => {
                   name="password"
                   label="Password"
                   rules={[
-                    { required: true, message: 'Please enter your password' },
-                    { min: 8, message: 'Password must be at least 8 characters' }
+                    { required: true, message: "Please enter your password" },
+                    {
+                      min: 8,
+                      message: "Password must be at least 8 characters",
+                    },
                   ]}
                   hasFeedback
                 >
@@ -215,16 +232,18 @@ const SignupPage: React.FC = () => {
                 <Form.Item
                   name="confirmPassword"
                   label="Confirm Password"
-                  dependencies={['password']}
+                  dependencies={["password"]}
                   hasFeedback
                   rules={[
-                    { required: true, message: 'Please confirm your password' },
+                    { required: true, message: "Please confirm your password" },
                     ({ getFieldValue }) => ({
                       validator(_, value) {
-                        if (!value || getFieldValue('password') === value) {
+                        if (!value || getFieldValue("password") === value) {
                           return Promise.resolve();
                         }
-                        return Promise.reject(new Error('The two passwords do not match'));
+                        return Promise.reject(
+                          new Error("The two passwords do not match")
+                        );
                       },
                     }),
                   ]}
@@ -241,32 +260,45 @@ const SignupPage: React.FC = () => {
                 name="termsAccepted"
                 valuePropName="checked"
                 rules={[
-                  { validator: (_, value) => value ? Promise.resolve() : Promise.reject(new Error('You must accept the terms and conditions')) },
+                  {
+                    validator: (_, value) =>
+                      value
+                        ? Promise.resolve()
+                        : Promise.reject(
+                            new Error(
+                              "You must accept the terms and conditions"
+                            )
+                          ),
+                  },
                 ]}
               >
                 <Checkbox>
-                  I agree to the <a className="text-blue-600">Terms of Service</a> and <a className="text-blue-600">Privacy Policy</a>
+                  I agree to the{" "}
+                  <a className="text-blue-600">Terms of Service</a> and{" "}
+                  <a className="text-blue-600">Privacy Policy</a>
                 </Checkbox>
               </Form.Item>
 
               <Form.Item>
-                <Button 
-                  type="primary" 
-                  htmlType="submit" 
+                <Button
+                  type="primary"
+                  htmlType="submit"
                   loading={loading}
                   className="w-full bg-blue-600 hover:bg-blue-700 border-blue-600 rounded-lg h-12 !text-base"
                 >
                   Create Account
                 </Button>
               </Form.Item>
-              
+
               <Divider plain>
-                <span className="text-gray-400 text-sm">Already have an account?</span>
+                <span className="text-gray-400 text-sm">
+                  Already have an account?
+                </span>
               </Divider>
-              
+
               <Link href="/login" passHref>
-                <Button 
-                  block 
+                <Button
+                  block
                   className="border-blue-600 text-blue-600 hover:text-blue-700 hover:border-blue-700 rounded-lg h-12"
                 >
                   Sign In
@@ -274,10 +306,11 @@ const SignupPage: React.FC = () => {
               </Link>
             </Form>
           </div>
-          
+
           <div className="px-8 pb-6 text-center">
             <Paragraph className="text-gray-500 text-sm">
-              By creating an account, you agree to receive appointment reminders and notifications via email and SMS.
+              By creating an account, you agree to receive appointment reminders
+              and notifications via email and SMS.
             </Paragraph>
           </div>
         </div>
