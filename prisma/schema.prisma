@@ -22,12 +22,13 @@ model User {
   dateOfBirth  DateTime?
   gender       String?
   insurance    String?
-  appointments Appointment[]
   role         Role          @default(USER)
+  specialist  String  @default("")
   createdAt    DateTime      @default(now())
   updatedAt    DateTime      @updatedAt
 
   @@map("users")
+  GuestAppointment GuestAppointment[]
 }
 
 model Clinician {
@@ -37,8 +38,6 @@ model Clinician {
   phone             String?
   specialty         Specialty?         @relation(fields: [specialtyId], references: [id])
   specialtyId       String?
-  appointments      Appointment[]
-  guestAppointments GuestAppointment[]
   role              Role               @default(CLINICIAN)
   createdAt         DateTime           @default(now())
   updatedAt         DateTime           @updatedAt
@@ -63,27 +62,17 @@ enum Role {
   CLINICIAN
   ADMIN
 }
-
-model Appointment {
-  id          String    @id @default(uuid())
-  date        DateTime
-  status      String    @default("pending") // pending, confirmed, canceled, completed
-  user        User?     @relation(fields: [userId], references: [id])
-  userId      String?
-  clinician   Clinician @relation(fields: [clinicianId], references: [id])
-  clinicianId String
-  createdAt   DateTime  @default(now())
-  updatedAt   DateTime  @updatedAt
-}
-
 model GuestAppointment {
   id          String    @id @default(uuid())
   name        String
   email       String?
   phone       String?
-  date        DateTime
-  status      String    @default("pending") // pending, confirmed, canceled, completed
-  clinician   Clinician @relation(fields: [clinicianId], references: [id])
+  status      String    @default("pending")
+  gender      String
+  appoint_date DateTime
+  appoint_time  String
+  reason String
+  clinician   User @relation(fields: [clinicianId], references: [id])
   clinicianId String
   createdAt   DateTime  @default(now())
   updatedAt   DateTime  @updatedAt

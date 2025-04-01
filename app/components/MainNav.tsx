@@ -13,7 +13,7 @@ const MainNav = () => {
   const navRef = useRef<HTMLDivElement>(null);
 
   const handleLogin = () => {
-    router.push("https://xanahealth.io/login");
+    router.push("/auth/login");
   }
 
   useEffect(() => {

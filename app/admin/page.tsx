@@ -310,16 +310,6 @@ const AdminDashboard: React.FC = () => {
       </ul>
     );
   };
-  
-  const userMenu = (
-    <Menu>
-      <Menu.Item key="profile" icon={<UserOutlined />}>Profile</Menu.Item>
-      <Menu.Item key="settings" icon={<SettingOutlined />}>Settings</Menu.Item>
-      <Menu.Divider />
-      <Menu.Item key="logout" icon={<LogoutOutlined />}>Logout</Menu.Item>
-    </Menu>
-  );
-
   return (
     <>
       <Head>
@@ -327,55 +317,8 @@ const AdminDashboard: React.FC = () => {
       </Head>
       
       <Layout style={{ minHeight: '100vh' }}>
-        <Sider 
-          width={230} 
-          collapsible 
-          collapsed={collapsed} 
-          onCollapse={setCollapsed}
-          className="shadow-md"
-          style={{ background: '#fff' }}
-        >
-          <div className={`p-4 flex ${collapsed ? 'justify-center' : 'justify-start'} items-center`}>
-            <MedicineBoxOutlined className="text-blue-600 text-2xl" />
-            {!collapsed && <span className="ml-2 text-lg font-semibold text-blue-700">GLAMERC Clinic</span>}
-          </div>
-          
-          <Menu
-            mode="inline"
-            defaultSelectedKeys={['dashboard']}
-            style={{ borderRight: 0 }}
-          >
-            <Menu.Item key="dashboard" icon={<DashboardOutlined />}>Dashboard</Menu.Item>
-            <Menu.Item key="appointments" icon={<CalendarOutlined />}>Appointments</Menu.Item>
-            <Menu.Item key="doctors" icon={<TeamOutlined />}>Doctors</Menu.Item>
-            <Menu.Item key="patients" icon={<UserOutlined />}>Patients</Menu.Item>
-            <Menu.Item key="reports" icon={<FileTextOutlined />}>Reports</Menu.Item>
-            <Menu.Item key="analytics" icon={<LineChartOutlined />}>Analytics</Menu.Item>
-            <Menu.Item key="settings" icon={<SettingOutlined />}>Settings</Menu.Item>
-          </Menu>
-        </Sider>
-        
+       
         <Layout>
-          <Header className="px-4 py-0 bg-white border-b border-gray-200 flex justify-between items-center">
-            <Breadcrumb className="my-4">
-              <Breadcrumb.Item>Admin</Breadcrumb.Item>
-              <Breadcrumb.Item>Dashboard</Breadcrumb.Item>
-            </Breadcrumb>
-            
-            <Space>
-              <Button type="text" icon={<BellOutlined />} />
-              <Dropdown overlay={userMenu} trigger={['click']}>
-                <Button type="text">
-                  <Space>
-                    <Avatar icon={<UserOutlined />} />
-                    {!collapsed && <span>Admin User</span>}
-                    <DownOutlined />
-                  </Space>
-                </Button>
-              </Dropdown>
-            </Space>
-          </Header>
-          
           <Content className="m-4 overflow-auto">
             <Row gutter={[16, 16]}>
               <Col span={24}>
