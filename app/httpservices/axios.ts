@@ -1,5 +1,12 @@
 import axios from "axios";
 import { getSession } from "next-auth/react";
+
+// Extend the Session type to include accessToken
+declare module "next-auth" {
+  interface Session {
+    accessToken?: string;
+  }
+}
 const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 export const glamercApi = axios.create({
   baseURL: `${apiUrl}/`,
@@ -7,7 +14,7 @@ export const glamercApi = axios.create({
 });
 glamercApi.interceptors.request.use(
   async (config) => {
-    const session:any = await getSession();
+    const session = await getSession();
     if (session?.accessToken) {
       config.headers.Authorization = `Bearer ${session.accessToken}`;
     }

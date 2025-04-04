@@ -5,13 +5,10 @@ import { BiCalendar } from 'react-icons/bi';
 import { CgLock } from 'react-icons/cg';
 import { PiPhone } from 'react-icons/pi';
 import { SiTarget } from 'react-icons/si';
-import NewAppointment from './Appointment';
 import { useState } from 'react';
 
-import { Clinician } from './Appointment';
 const HeroSection = () => {
     const [isModalVisible, setIsModalVisible] = useState(false);
-    const [selectedClinician,] = useState<Clinician>(null as unknown as Clinician);
     const handleCancel = () => {
         setIsModalVisible(!isModalVisible)
     }
@@ -19,11 +16,7 @@ const HeroSection = () => {
         <div className="relative min-h-screen bg-white">
             {/* Background Pattern */}
             <div className="absolute inset-0 bg-gradient-to-br from-blue-50 to-white z-0" />
-            <NewAppointment
-                isModalVisible={isModalVisible}
-                selectedClinician={selectedClinician}
-                handleCancel={handleCancel}
-            />
+    
 
             {/* Top Banner */}
             <div className="bg-blue-600 text-white py-2">
@@ -84,9 +77,9 @@ const HeroSection = () => {
                     <div className="space-y-4">
                         <div className="relative h-[400px] rounded-2xl overflow-hidden shadow-2xl">
                             <img
-                                src="/images/house.jpg"
+                                // src="/images/house.jpg"
                                 alt="Modern dental clinic interior"
-
+                                src="/images/dent1.jpg"
                                 height={100}
                                 width={100}
                                 className="object-cover h-full w-full"
@@ -96,7 +89,8 @@ const HeroSection = () => {
                         <div className="grid grid-cols-2 gap-4">
                             <div className="relative h-[200px] rounded-xl overflow-hidden shadow-lg">
                                 <img
-                                    src="/images/dent1.jpg"
+                                    // src="/images/dent1.jpg"
+                                    src="/images/dent3.jpg"
                                     alt="Dental treatment"
                                     height={100}
                                     width={100}
@@ -105,9 +99,9 @@ const HeroSection = () => {
                             </div>
                             <div className="relative h-[200px] rounded-xl overflow-hidden shadow-lg">
                                 <img
-                                    src="/images/dent3.jpg"
+                                    // src="/images/dent3.jpg"
+                                    src="/images/contact.jpg" 
                                     alt="Happy patient smiling"
-
                                     height={100}
                                     width={100}
                                     className="object-cover h-full w-full"

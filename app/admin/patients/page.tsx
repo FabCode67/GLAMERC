@@ -7,7 +7,7 @@ import {
   Table,
 } from "antd";
 import useSWR from "swr";
-import { getAllClinicians, getAllpatients } from "@/app/httpservices/user";
+import {getAllpatients } from "@/app/httpservices/user";
 const Page = () => {
   const { data, error, isLoading } = useSWR(['users'], getAllpatients)
   const columns = [
@@ -40,7 +40,7 @@ const Page = () => {
             day: 'numeric'
           });
         } catch (error) {
-          console.error("Invalid date format:", dateString);
+          console.error("Invalid date format:", dateString, error);
           return dateString; 
         }
       }

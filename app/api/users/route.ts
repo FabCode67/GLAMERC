@@ -35,6 +35,7 @@ export async function POST(req: Request) {
       user,
     });
   } catch (error) {
+    console.error(error);
     return NextResponse.json(
       { error: "Account creation failed" },
       { status: 500 }
@@ -48,6 +49,8 @@ export async function GET() {
     const users = await prisma.user.findMany({where:{role:"USER"}});
     return NextResponse.json(users);
   } catch (error) {
+    console.log(error);
+    
     return NextResponse.json(
       { error: "Failed to fetch users" },
       { status: 500 }

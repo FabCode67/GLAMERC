@@ -15,23 +15,24 @@ const ServiceCard = ({ service }: { service: Service }) => (
     hoverable
     bodyStyle={{padding: "3px"}}
     className={`h-full p-0 ${
-      service.highlighted ? 'bg-blue-500 text-white' : 'bg-white'
+      service.highlighted ? 'bg-white' : 'bg-white'
     }`}
     cover={
       <div className="p-4">
         <img
           alt={service.title}
           src={service.icon}
-          className="w-full aspect-square object-contain rounded-lg transition-transform duration-300 hover:scale-105"
+          className={`w-full aspect-square  rounded-lg transition-transform duration-300 hover:scale-105
+            ${service.highlighted ? ' object-fill' : 'object-contain'}`}
         />
       </div>
     }
   >
-    <Title level={4} className={`mb-2 ${service.highlighted ? 'text-white' : 'text-gray-800'}`}>
+    <p className={`mb-2 font-bold text-lg ${service.highlighted ? 'text-gray-800' : 'text-gray-800'}`}>
       {service.title}
-    </Title>
+    </p>
     {service.description && (
-      <Paragraph className={service.highlighted ? 'text-blue-50' : 'text-gray-600'}>
+      <Paragraph className={service.highlighted ? 'text-gray-600' : 'text-gray-600'}>
         {service.description}
       </Paragraph>
     )}
@@ -85,10 +86,16 @@ const ServiceSection = () => {
 
 const services = [
   {
+    title: "Clear aligners are sets of clear, thin, plastic-like trays that are custom-formed to fit your mouth and sequentially apply the pressure required to move the teeth.",
+    description: "",
+    icon: "/ort.jpg"
+  },
+  {
     title: "Orthodontic braces straighten teeth using a combination of brackets and wires affixed to your teeth.",
-    description: "Clear aligners are sets of clear, thin, plastic-like trays that are custom-formed to fit your mouth and sequentially apply the pressure required to move the teeth.",
+    description: "",
     icon: "/services/clear_align.jpg"
   },
+
   {
     title: "Root Canal Therapy (RCT)",
     description: "Root canal therapy is a treatment used to repair and save a tooth that is badly decayed or infected.",
@@ -100,6 +107,22 @@ const services = [
     icon: "plumo.jpg"
   },
   {
+    title: "Dental implants are medical devices surgically implanted into the jaw to restore a person's ability to chew or their appearance. ",
+    description: "They provide support for artificial (fake) teeth, such as crowns, bridges, or dentures.",
+    icon: "dentalimplant.jpg"
+  },
+  {
+    title: "Dentures & Implants",
+    description: "Removable and fixed dentures plus dental implant solutions",
+    icon: "/services/fixed.jpg"
+  },
+  {
+    title: "A removable denture replaces missing teeth. ‘Partial’ dentures replace a few missing teeth and ‘full’ or ‘complete’ dentures are needed if all the natural teeth are missing.",
+    description: "",
+    icon: "/full_prtial.jpg",
+    highlighted: true
+  },
+  {
     title: "Fillings",
     description: "Glass ionomer cement fillings, Composite resin fillings, Amalgam fillings",
     icon: "/services/tooth_filling.jpg"
@@ -109,11 +132,7 @@ const services = [
     description: "Simple extractions, Surgical extractions, Wisdom teeth extractions",
     icon: "/toothextraction.jpg"
   },
-  {
-    title: "Dentures & Implants",
-    description: "Removable and fixed dentures plus dental implant solutions",
-    icon: "/services/fixed.jpg"
-  },
+  
   {
     title: "Scaling & Root Planning",
     description: "Gum treatment for gum disease",
@@ -131,9 +150,19 @@ const services = [
     icon: "/toothwhite.jpg"
   },
   {
-    title: "Retainers & Night Guards",
-    description: "Get your retainers and night guards",
-    icon: "/im9.png"
+    title: "A fixed retainer is an orthodontic device that keeps your teeth straight after your braces have been removed.",
+    description: "",
+    icon: "/fixed.jpg"
+  },
+  {
+    title: "",
+    description: "A Hawley retainer is a removable orthodontic appliance, consisting of a custom-made acrylic plate and metal wires, used to maintain the position of teeth after orthodontic treatment, such as braces or aligners.",
+    icon: "/hwley.jpg"
+  },
+  {
+    title: "",
+    description: "These customized, removable retainers are made of a thin, clear plastic that fits closely over your teeth. Used to maintain the position of teeth after orthodontic treatment.",
+    icon: "/cust.jpg"
   }
 ];
 

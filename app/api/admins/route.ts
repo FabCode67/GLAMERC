@@ -12,6 +12,7 @@ export async function POST(req: Request) {
 
     return NextResponse.json(admin, { status: 201 });
   } catch (error) {
+    console.error(error);
     return NextResponse.json({ error: "Admin creation failed" }, { status: 500 });
   }
 }
@@ -22,6 +23,7 @@ export async function GET() {
     const admins = await prisma.admin.findMany();
     return NextResponse.json(admins);
   } catch (error) {
+    console.log(error);
     return NextResponse.json({ error: "Failed to fetch admins" }, { status: 500 });
   }
 }

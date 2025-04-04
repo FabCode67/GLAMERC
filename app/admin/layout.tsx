@@ -4,7 +4,6 @@ import React, { useEffect, useState } from 'react';
 import { 
     Layout, 
     Menu, 
-    Typography, 
     Button, 
     Avatar, 
     Dropdown, 
@@ -28,26 +27,10 @@ import Head from 'next/head';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
-const { Header, Sider, Content } = Layout;
-const { Title, Text } = Typography;
+const { Header, Sider } = Layout;
 
-interface AppointmentData {
-  key: string;
-  patient: string;
-  doctor: string;
-  date: string;
-  time: string;
-  status: 'scheduled' | 'completed' | 'cancelled';
-  type: string;
-}
 
-interface DoctorData {
-  key: string;
-  name: string;
-  specialty: string;
-  appointments: number;
-  availability: string;
-}
+
 
 export default function AdminDashboard ({
     children,

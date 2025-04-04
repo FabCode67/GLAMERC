@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import { Card, Row, Col, Table, Button, Space, notification } from "antd";
+import { Card, Row, Col, Table, Space, notification } from "antd";
 import useSWR from "swr";
 import {
   getAllAppopintment,
@@ -15,7 +15,7 @@ const Page = () => {
     ["appointments", refetch],
     getAllAppopintment
   );
-  const handleEdit = async (record: any) => {
+  const handleEdit = async (record: { id: string }) => {
     const response = await markAppointmentAsResponded(record?.id);
     if (response?.status == 200) {
       notification.success(response?.message);
@@ -68,6 +68,8 @@ const Page = () => {
             day: "numeric",
           });
         } catch (error) {
+          console.log("Invalid date format:", dateString, error);
+          
           console.error("Invalid date format:", dateString);
           return dateString;
         }
@@ -100,7 +102,7 @@ const Page = () => {
     {
       title: "Actions",
       key: "actions",
-      render: (_: any, record: any) => (
+      render: (_: undefined, record: { id: string }) => (
         <Space size="middle">
           <span
             onClick={() => handleEdit(record)}

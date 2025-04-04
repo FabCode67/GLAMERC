@@ -12,6 +12,7 @@ export async function POST(req: Request) {
 
     return NextResponse.json(clinician, { status: 201 });
   } catch (error) {
+    console.error(error);
     return NextResponse.json({ error: "Clinician creation failed" }, { status: 500 });
   }
 }
@@ -22,6 +23,7 @@ export async function GET() {
     const clinicians = await prisma.clinician.findMany({ include: { specialty: true } });
     return NextResponse.json(clinicians);
   } catch (error) {
+    console.log(error);
     return NextResponse.json({ error: "Failed to fetch clinicians" }, { status: 500 });
   }
 }

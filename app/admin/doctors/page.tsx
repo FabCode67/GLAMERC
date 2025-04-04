@@ -43,7 +43,7 @@ const Page = () => {
             day: 'numeric'
           });
         } catch (error) {
-          console.error("Invalid date format:", dateString);
+          console.error("Invalid date format:", dateString, error);
           return dateString; 
         }
       }

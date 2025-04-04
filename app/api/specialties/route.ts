@@ -12,6 +12,7 @@ export async function POST(req: Request) {
 
     return NextResponse.json(specialty, { status: 201 });
   } catch (error) {
+    console.log(error);
     return NextResponse.json({ error: "Specialty creation failed" }, { status: 500 });
   }
 }
@@ -22,6 +23,7 @@ export async function GET() {
     const specialties = await prisma.specialty.findMany();
     return NextResponse.json(specialties);
   } catch (error) {
+    console.log(error);
     return NextResponse.json({ error: "Failed to fetch specialties" }, { status: 500 });
   }
 }

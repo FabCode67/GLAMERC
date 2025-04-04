@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai';
 import { BiPhone } from 'react-icons/bi';
 import { useRouter } from 'next/navigation';
+import { BsWhatsapp } from 'react-icons/bs';
 
 const MainNav = () => {
   const [isFixed, setIsFixed] = useState(false);
@@ -64,7 +65,9 @@ const MainNav = () => {
           </Link>
         </div>
         <div className="hidden lg:flex items-center space-x-4">
-          <span className={` ${isFixed ? 'text-black' : 'text-white'} flex`}><BiPhone className={`flex my-auto justify-center ${isFixed ? 'text-black' : 'text-white'}`} /> +250 784 012 286</span>
+         <a href="https://wa.me/250784012286" className={` ${isFixed ? 'text-black' : 'text-white'} flex`}><BiPhone className={`flex my-auto justify-center ${isFixed ? 'text-black' : 'text-white'}`} />
+         <BsWhatsapp className={`flex my-auto ml-2 mr-2 justify-center ${isFixed ? 'text-black' : 'text-white'}`} /> +250 784 012 286</a>
+         <a href="https://wa.me/250788504151" className={` ${isFixed ? 'text-black' : 'text-white'} flex`}> +250 788 504 151</a>
           <Button onClick={handleLogin} type="primary" className="bg-blue-600 hover:bg-blue-700">
             Login
           </Button>
@@ -105,6 +108,7 @@ const MainNav = () => {
               <p className={`${isFixed ? 'text-gray-700 hover:text-blue-600' : 'text-white hover:text-slate-300'}`}>Contact</p>
             </Link>
             <span className={`${isFixed ? 'text-black' : 'text-white'} flex`}><BiPhone className='flex my-auto justify-center' /> +250 784 012 286</span>
+            <span className={`${isFixed ? 'text-black' : 'text-white'} flex`}><BiPhone className='flex my-auto justify-center' /> +250 788 504 151</span>
             <Button onClick={handleLogin} type="primary" className="bg-blue-600 hover:bg-blue-700">
               Login
             </Button>
