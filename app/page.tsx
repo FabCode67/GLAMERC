@@ -10,6 +10,7 @@ import Footer from './components/Footer';
 import LocationSection from './components/Location';
 import NavLogo from './components/NavLogo';
 import Map from './components/Map';
+import FixedAppointmentButton from './components/AppointmentButton';
 
 const Home = () => {
   return (
@@ -24,6 +25,7 @@ const Home = () => {
       <TeamSection />
       <LocationSection />
       <Map />
+      <FixedAppointmentButton />
       <Footer />
     </div>
   );

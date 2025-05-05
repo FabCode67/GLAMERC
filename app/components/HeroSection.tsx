@@ -6,19 +6,14 @@ import { CgLock } from 'react-icons/cg';
 import { PiPhone } from 'react-icons/pi';
 import { SiTarget } from 'react-icons/si';
 import { useState } from 'react';
+import AppointmentModal from './AppointmentModel';
 
 const HeroSection = () => {
-    const [isModalVisible, setIsModalVisible] = useState(false);
-    const handleCancel = () => {
-        setIsModalVisible(!isModalVisible)
-    }
+    const [modalOpen, setModalOpen] = useState(false);
     return (
         <div className="relative min-h-screen bg-white">
             {/* Background Pattern */}
             <div className="absolute inset-0 bg-gradient-to-br from-blue-50 to-white z-0" />
-    
-
-            {/* Top Banner */}
             <div className="bg-blue-600 text-white py-2">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <p className="text-center text-sm sm:text-base">
@@ -48,7 +43,9 @@ const HeroSection = () => {
                         </div>
                         <div className="flex flex-col sm:flex-row gap-4">
                             <button
-                                onClick={handleCancel}
+                                onClick={
+                                    () => setModalOpen(true)
+                                }
                                 className="bg-blue-600   justify-between hover:bg-blue-700 text-white px-8 py-3 rounded-lg text-lg flex items-center gap-2">
                                 Book Appointmet
                                 <BiCalendar className="w-5 h-5" />
@@ -58,7 +55,6 @@ const HeroSection = () => {
                                 <PiPhone className="w-5 h-5" />
                             </Link>
                         </div>
-
                         {/* Key Features */}
                         <div className="grid sm:grid-cols-2 gap-6 pt-8">
                             <div className="flex items-start gap-4">
@@ -100,7 +96,7 @@ const HeroSection = () => {
                             <div className="relative h-[200px] rounded-xl overflow-hidden shadow-lg">
                                 <img
                                     // src="/images/dent3.jpg"
-                                    src="/images/contact.jpg" 
+                                    src="/images/contact.jpg"
                                     alt="Happy patient smiling"
                                     height={100}
                                     width={100}
@@ -111,6 +107,8 @@ const HeroSection = () => {
                     </div>
                 </div>
             </div>
+            <AppointmentModal isOpen={modalOpen} onClose={() => setModalOpen(false)} />
+
         </div>
     );
 };
